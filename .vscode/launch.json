@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "train",
+            "type": "python",
+            "python": "/root/miniconda3/bin/python",
+            "program": "/root/mappo/MAPPO4Beamforming/train.py",
+            "console": "integratedTerminal",
+            "request": "launch"
+        },
+        {
+            "name": "train_ddpg",
+            "type": "python",
+            "python": "/root/miniconda3/bin/python",
+            "program": "/root/mappo/ADC-MADDPG/main_openai.py",
+            "console": "integratedTerminal",
+            "request": "launch"
+        }
+    ]
+}
