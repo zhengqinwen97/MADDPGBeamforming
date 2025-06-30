@@ -13,6 +13,7 @@ from replay_buffer import ReplayBuffer
 from environment import *
 from model import openai_actor, openai_critic, openai_critic_double_q, critic_adq, critic_attention_v3, critic_adq_v2
 from itertools import chain
+from datetime import datetime
 
 global double_q_delay_fre, double_q_delay_cnt
 double_q_delay_fre = 2
@@ -128,42 +129,69 @@ OBJ_DIMS = 280 * 4
 ACT_DIMS = 16
 AGENT_NUM = 24
 
+# def get_trainers_mix_ax(n, obs_shape_n, action_shape_n, arglist):
+#     """
+#     init the trainers or load the old model
+#     """
+#     trainers_cur = []
+#     trainers_tar = []
+#     actors_cur = [None for _ in range(n)]
+#     critics_cur = [None for _ in range(n)]
+#     actors_tar = [None for _ in range(n)]
+#     critics_tar = [None for _ in range(n)]
+#     optimizers_c = [None for _ in range(n)]
+#     optimizers_a = [None for _ in range(n)]
+#     input_size_global = sum(obs_shape_n) + sum(action_shape_n)
+
+#     # if arglist.restore == True:  # restore the model
+#     #     for idx in arglist.restore_idxs:
+#     #         trainers_cur[idx] = torch.load(arglist.old_model_name + 'c_{}'.format(agent_idx))
+#     #         trainers_tar[idx] = torch.load(arglist.old_model_name + 't_{}'.format(agent_idx))
+
+#     # Note: if you need load old model, there should be a procedure for juding if the trainers[idx] is None
+#     for i in range(n):
+#         actors_cur[i] = openai_actor(obs_shape_n[i], action_shape_n[i], arglist).to(arglist.device)
+#         actors_tar[i] = openai_actor(obs_shape_n[i], action_shape_n[i], arglist).to(arglist.device)
+#         if i < AGENT_NUM:
+#             critics_cur[i] = openai_critic(sum(obs_shape_n[0:AGENT_NUM]), sum(action_shape_n[0:AGENT_NUM]), arglist).to(arglist.device)
+#             critics_tar[i] = openai_critic(sum(obs_shape_n[0:AGENT_NUM]), sum(action_shape_n[0:AGENT_NUM]), arglist).to(arglist.device)
+#         else:
+#             critics_cur[i] = openai_critic(sum(obs_shape_n[-2:]), sum(action_shape_n[-2:]), arglist).to(arglist.device)
+#             critics_tar[i] = openai_critic(sum(obs_shape_n[-2:]), sum(action_shape_n[-2:]), arglist).to(arglist.device)
+#         optimizers_a[i] = optim.Adam(actors_cur[i].parameters(), arglist.lr_a)
+#         optimizers_c[i] = optim.Adam(critics_cur[i].parameters(), arglist.lr_c)
+
+#     actors_tar = update_trainers(actors_cur, actors_tar, 1.0)  # update the target par using the cur
+#     critics_tar = update_trainers(critics_cur, critics_tar, 1.0)  # update the target par using the cur
+#     return actors_cur, critics_cur, actors_tar, critics_tar, optimizers_a, optimizers_c
+
 def get_trainers_mix_ax(n, obs_shape_n, action_shape_n, arglist):
     """
     init the trainers or load the old model
     """
-    trainers_cur = []
-    trainers_tar = []
-    actors_cur = [None for _ in range(n)]
-    critics_cur = [None for _ in range(n)]
-    actors_tar = [None for _ in range(n)]
-    critics_tar = [None for _ in range(n)]
-    optimizers_c = [None for _ in range(n)]
-    optimizers_a = [None for _ in range(n)]
-    input_size_global = sum(obs_shape_n) + sum(action_shape_n)
-
-    # if arglist.restore == True:  # restore the model
-    #     for idx in arglist.restore_idxs:
-    #         trainers_cur[idx] = torch.load(arglist.old_model_name + 'c_{}'.format(agent_idx))
-    #         trainers_tar[idx] = torch.load(arglist.old_model_name + 't_{}'.format(agent_idx))
-
-    # Note: if you need load old model, there should be a procedure for juding if the trainers[idx] is None
-    for i in range(n):
-        actors_cur[i] = openai_actor(obs_shape_n[i], action_shape_n[i], arglist).to(arglist.device)
-        actors_tar[i] = openai_actor(obs_shape_n[i], action_shape_n[i], arglist).to(arglist.device)
-        if i < AGENT_NUM:
-            critics_cur[i] = openai_critic(sum(obs_shape_n[0:AGENT_NUM]), sum(action_shape_n[0:AGENT_NUM]), arglist).to(arglist.device)
-            critics_tar[i] = openai_critic(sum(obs_shape_n[0:AGENT_NUM]), sum(action_shape_n[0:AGENT_NUM]), arglist).to(arglist.device)
-        else:
-            critics_cur[i] = openai_critic(sum(obs_shape_n[-2:]), sum(action_shape_n[-2:]), arglist).to(arglist.device)
-            critics_tar[i] = openai_critic(sum(obs_shape_n[-2:]), sum(action_shape_n[-2:]), arglist).to(arglist.device)
-        optimizers_a[i] = optim.Adam(actors_cur[i].parameters(), arglist.lr_a)
-        optimizers_c[i] = optim.Adam(critics_cur[i].parameters(), arglist.lr_c)
+    actors_cur_obj = openai_actor(obs_shape_n[0], action_shape_n[0], arglist).to(arglist.device)
+    actors_cur = [actors_cur_obj for _ in range(n)]
+    
+    critics_cur_obj = openai_critic(sum(obs_shape_n[0:AGENT_NUM]), sum(action_shape_n[0:AGENT_NUM]), arglist).to(arglist.device)
+    critics_cur = [critics_cur_obj for _ in range(n)]
+    
+    actors_tar_obj = openai_actor(obs_shape_n[0], action_shape_n[0], arglist).to(arglist.device)
+    actors_tar = [actors_tar_obj for _ in range(n)]
+    
+    critics_tar_obj = openai_critic(sum(obs_shape_n[0:AGENT_NUM]), sum(action_shape_n[0:AGENT_NUM]), arglist).to(arglist.device)
+    critics_tar = [critics_tar_obj for _ in range(n)]
+    
+    optimizers_c_obj = optim.Adam(critics_cur[0].parameters(), arglist.lr_c)
+    optimizers_c = [optimizers_c_obj for _ in range(n)]
+    
+    optimizers_a_obf = optim.Adam(actors_cur[0].parameters(), arglist.lr_a)
+    optimizers_a = [optimizers_a_obf for _ in range(n)]
 
     actors_tar = update_trainers(actors_cur, actors_tar, 1.0)  # update the target par using the cur
     critics_tar = update_trainers(critics_cur, critics_tar, 1.0)  # update the target par using the cur
-    return actors_cur, critics_cur, actors_tar, critics_tar, optimizers_a, optimizers_c
 
+    return actors_cur, critics_cur, actors_tar, critics_tar, optimizers_a, optimizers_c
+    
 
 def get_trainers_mix_double_q(n, obs_shape_n, action_shape_n, arglist):
     """
@@ -537,10 +565,6 @@ def agents_train_mix(arglist, game_step, update_cnt, memory_t, memory_j, obs_siz
 
     return update_cnt, actors_cur, actors_tar, critics_cur, critics_tar
 
-OBJ_DIMS = 280 * 4
-ACT_DIMS = 16
-AGENT_NUM = 24
-
 def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_size, action_size, \
                      actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, type, random=True):
     """
@@ -561,98 +585,135 @@ def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_
                 enumerate(zip(actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c)):
             if opt_c == None: continue  # jump to the next model update
 
-            # --use the date to update the CRITIC of typical UAVs
-            if agent_idx < AGENT_NUM:
-                # sample the experience
-                _obs_n_o, _action_n, _rew_n, _obs_n_n, _done_n = memory_t.sample( \
-                    arglist.batch_size, agent_idx)  # Note_The func is not the same as others
-                # 重整状态空间、动作空间等，把自己对应的放第一个
+            _obs_n_o, _action_n, _rew_n, _obs_n_n, _done_n = memory_t.sample( \
+                arglist.batch_size, agent_idx - 3)  # Note_The func is not the same as others
+            rew = torch.tensor(_rew_n, device=arglist.device, dtype=torch.float)  # set the rew to gpu
+            done_n = torch.tensor(~_done_n, dtype=torch.float, device=arglist.device)  # set the rew to gpu
+            action_cur_o = torch.from_numpy(_action_n).to(arglist.device, torch.float)
+            obs_n_o = torch.from_numpy(_obs_n_o).to(arglist.device, torch.float)
+            obs_n_n = torch.from_numpy(_obs_n_n).to(arglist.device, torch.float)
 
-                _obs_n_o = resize(_obs_n_o, agent_idx, OBJ_DIMS)
-                _action_n = resize(_action_n, agent_idx, ACT_DIMS)
-                _obs_n_n = resize(_obs_n_n, agent_idx, OBJ_DIMS)
+            seq = list(range(AGENT_NUM))
+            agent_seq = [agent_idx] + [idx for idx in seq if idx != agent_idx]
+            action_tar = actors_tar[agent_idx](obs_n_n[:, :OBJ_DIMS]).detach()
+            for i,idx in enumerate(agent_seq[1:]):
+                action_tar = torch.cat((action_tar, actors_tar[idx](obs_n_n[:,(i+1)*OBJ_DIMS : (i+1)*OBJ_DIMS+OBJ_DIMS]).detach()), dim = 1)
 
-                rew = torch.tensor(_rew_n, device=arglist.device, dtype=torch.float)  # set the rew to gpu
-                done_n = torch.tensor(~_done_n, dtype=torch.float, device=arglist.device)  # set the rew to gpu
-                action_cur_o = torch.from_numpy(_action_n).to(arglist.device, torch.float)
-                obs_n_o = torch.from_numpy(_obs_n_o).to(arglist.device, torch.float)
-                obs_n_n = torch.from_numpy(_obs_n_n).to(arglist.device, torch.float)
+            q = critic_c(obs_n_o, action_cur_o).reshape(-1)  # q
+            q_ = critic_t(obs_n_n, action_tar).reshape(-1)  # q_
+            tar_value = q_ * arglist.gamma * done_n + rew  # q_*gamma*done + reward
+            loss_c = torch.nn.MSELoss()(q, tar_value)  # bellman equation
+            opt_c.zero_grad()
+            loss_c.backward()
+            # nn.utils.clip_grad_norm_(critic_c.parameters(), arglist.max_grad_norm)
+            opt_c.step()
 
-                # action_tar = torch.cat([a_t(obs_n_n[:, obs_size[idx][0]:obs_size[idx][1]]).detach() \
-                #                          for idx, a_t in enumerate(actors_tar[0:3])], dim=1)
-                seq = list(range(AGENT_NUM))
-                agent_seq = [agent_idx] + [idx for idx in seq if idx != agent_idx]
-                action_tar = actors_tar[agent_idx](obs_n_n[:, :OBJ_DIMS]).detach()
+            # --use the data to update the ACTOR
+            # There is no need to cal other agent's action
+            model_out, policy_c_new = actor_c( \
+                obs_n_o[:, :OBJ_DIMS], model_original_out=True)
+            # update the aciton of this agent
+            action_cur_o[:,:ACT_DIMS] = policy_c_new
+            loss_pse = torch.mean(torch.pow(model_out, ACT_DIMS))
+            loss_a = torch.mul(-1, torch.mean(critic_c(obs_n_o, action_cur_o)))
 
-                for i,idx in enumerate(agent_seq[1:]):
-                    action_tar = torch.cat((action_tar, actors_tar[idx](obs_n_n[:,(i+1)*OBJ_DIMS : (i+1)*OBJ_DIMS+OBJ_DIMS]).detach()), dim = 1)
+            opt_a.zero_grad()
+            (1e-3 * loss_pse + loss_a).backward()
+            # nn.utils.clip_grad_norm_(actor_c.parameters(), arglist.max_grad_norm)
+            opt_a.step()
 
-                # action_tar = actors_tar[agent_idx](obs_n_n[:, :15])
-                # for idx in agent_seq:
-                #     if idx == agent_idx:
-                #         continue
-                #     else:
-                #         action_tar = torch.cat((action_tar, actors_tar[idx](obs_n_n[:,idx*15 : idx*15+15])), dim = 1)
+            # # --use the date to update the CRITIC of typical UAVs
+            # if agent_idx < AGENT_NUM:
+            #     # sample the experience
+            #     _obs_n_o, _action_n, _rew_n, _obs_n_n, _done_n = memory_t.sample( \
+            #         arglist.batch_size, agent_idx)  # Note_The func is not the same as others
+            #     # 重整状态空间、动作空间等，把自己对应的放第一个
 
-                q = critic_c(obs_n_o, action_cur_o).reshape(-1)  # q
-                # print(obs_n_o, action_cur_o)
-                q_ = critic_t(obs_n_n, action_tar).reshape(-1)  # q_
-                tar_value = q_ * arglist.gamma * done_n + rew  # q_*gamma*done + reward
-                loss_c = torch.nn.MSELoss()(q, tar_value)  # bellman equation
-                opt_c.zero_grad()
-                loss_c.backward()
-                # nn.utils.clip_grad_norm_(critic_c.parameters(), arglist.max_grad_norm)
-                opt_c.step()
+            #     _obs_n_o = resize(_obs_n_o, agent_idx, OBJ_DIMS)
+            #     _action_n = resize(_action_n, agent_idx, ACT_DIMS)
+            #     _obs_n_n = resize(_obs_n_n, agent_idx, OBJ_DIMS)
 
-                # --use the data to update the ACTOR
-                # There is no need to cal other agent's action
-                model_out, policy_c_new = actor_c( \
-                    obs_n_o[:, :OBJ_DIMS], model_original_out=True)
-                # update the aciton of this agent
-                action_cur_o[:,:ACT_DIMS] = policy_c_new
-                loss_pse = torch.mean(torch.pow(model_out, ACT_DIMS))
-                loss_a = torch.mul(-1, torch.mean(critic_c(obs_n_o, action_cur_o)))
+            #     rew = torch.tensor(_rew_n, device=arglist.device, dtype=torch.float)  # set the rew to gpu
+            #     done_n = torch.tensor(~_done_n, dtype=torch.float, device=arglist.device)  # set the rew to gpu
+            #     action_cur_o = torch.from_numpy(_action_n).to(arglist.device, torch.float)
+            #     obs_n_o = torch.from_numpy(_obs_n_o).to(arglist.device, torch.float)
+            #     obs_n_n = torch.from_numpy(_obs_n_n).to(arglist.device, torch.float)
 
-                opt_a.zero_grad()
-                (1e-3 * loss_pse + loss_a).backward()
-                # nn.utils.clip_grad_norm_(actor_c.parameters(), arglist.max_grad_norm)
-                opt_a.step()
+            #     # action_tar = torch.cat([a_t(obs_n_n[:, obs_size[idx][0]:obs_size[idx][1]]).detach() \
+            #     #                          for idx, a_t in enumerate(actors_tar[0:3])], dim=1)
+            #     seq = list(range(AGENT_NUM))
+            #     agent_seq = [agent_idx] + [idx for idx in seq if idx != agent_idx]
+            #     action_tar = actors_tar[agent_idx](obs_n_n[:, :OBJ_DIMS]).detach()
 
-            # --use the date to update the CRITIC of jammers
-            else:
-                _obs_n_o, _action_n, _rew_n, _obs_n_n, _done_n = memory_j.sample( \
-                    arglist.batch_size, agent_idx - 3)  # Note_The func is not the same as others
-                rew = torch.tensor(_rew_n, device=arglist.device, dtype=torch.float)  # set the rew to gpu
-                done_n = torch.tensor(~_done_n, dtype=torch.float, device=arglist.device)  # set the rew to gpu
-                action_cur_o = torch.from_numpy(_action_n).to(arglist.device, torch.float)
-                obs_n_o = torch.from_numpy(_obs_n_o).to(arglist.device, torch.float)
-                obs_n_n = torch.from_numpy(_obs_n_n).to(arglist.device, torch.float)
+            #     for i,idx in enumerate(agent_seq[1:]):
+            #         action_tar = torch.cat((action_tar, actors_tar[idx](obs_n_n[:,(i+1)*OBJ_DIMS : (i+1)*OBJ_DIMS+OBJ_DIMS]).detach()), dim = 1)
 
-                action_tar = torch.cat([a_t(obs_n_n[:, obs_size[idx + 3][0] - 45:obs_size[idx + 3][1] - 45]).detach() \
-                                        for idx, a_t in enumerate(actors_tar[-2:])], dim=1)
+            #     # action_tar = actors_tar[agent_idx](obs_n_n[:, :15])
+            #     # for idx in agent_seq:
+            #     #     if idx == agent_idx:
+            #     #         continue
+            #     #     else:
+            #     #         action_tar = torch.cat((action_tar, actors_tar[idx](obs_n_n[:,idx*15 : idx*15+15])), dim = 1)
+
+            #     q = critic_c(obs_n_o, action_cur_o).reshape(-1)  # q
+            #     # print(obs_n_o, action_cur_o)
+            #     q_ = critic_t(obs_n_n, action_tar).reshape(-1)  # q_
+            #     tar_value = q_ * arglist.gamma * done_n + rew  # q_*gamma*done + reward
+            #     loss_c = torch.nn.MSELoss()(q, tar_value)  # bellman equation
+            #     opt_c.zero_grad()
+            #     loss_c.backward()
+            #     # nn.utils.clip_grad_norm_(critic_c.parameters(), arglist.max_grad_norm)
+            #     opt_c.step()
+
+            #     # --use the data to update the ACTOR
+            #     # There is no need to cal other agent's action
+            #     model_out, policy_c_new = actor_c( \
+            #         obs_n_o[:, :OBJ_DIMS], model_original_out=True)
+            #     # update the aciton of this agent
+            #     action_cur_o[:,:ACT_DIMS] = policy_c_new
+            #     loss_pse = torch.mean(torch.pow(model_out, ACT_DIMS))
+            #     loss_a = torch.mul(-1, torch.mean(critic_c(obs_n_o, action_cur_o)))
+
+            #     opt_a.zero_grad()
+            #     (1e-3 * loss_pse + loss_a).backward()
+            #     # nn.utils.clip_grad_norm_(actor_c.parameters(), arglist.max_grad_norm)
+            #     opt_a.step()
+
+            # # --use the date to update the CRITIC of jammers
+            # else:
+            #     _obs_n_o, _action_n, _rew_n, _obs_n_n, _done_n = memory_j.sample( \
+            #         arglist.batch_size, agent_idx - 3)  # Note_The func is not the same as others
+            #     rew = torch.tensor(_rew_n, device=arglist.device, dtype=torch.float)  # set the rew to gpu
+            #     done_n = torch.tensor(~_done_n, dtype=torch.float, device=arglist.device)  # set the rew to gpu
+            #     action_cur_o = torch.from_numpy(_action_n).to(arglist.device, torch.float)
+            #     obs_n_o = torch.from_numpy(_obs_n_o).to(arglist.device, torch.float)
+            #     obs_n_n = torch.from_numpy(_obs_n_n).to(arglist.device, torch.float)
+
+            #     action_tar = torch.cat([a_t(obs_n_n[:, obs_size[idx + 3][0] - 45:obs_size[idx + 3][1] - 45]).detach() \
+            #                             for idx, a_t in enumerate(actors_tar[-2:])], dim=1)
                 
-                q = critic_c(obs_n_o, action_cur_o).reshape(-1)  # q
-                q_ = critic_t(obs_n_n, action_tar).reshape(-1)  # q_
-                tar_value = q_ * arglist.gamma * done_n + rew  # q_*gamma*done + reward
-                loss_c = torch.nn.MSELoss()(q, tar_value)  # bellman equation
-                opt_c.zero_grad()
-                loss_c.backward()
-                # nn.utils.clip_grad_norm_(critic_c.parameters(), arglist.max_grad_norm)
-                opt_c.step()
+            #     q = critic_c(obs_n_o, action_cur_o).reshape(-1)  # q
+            #     q_ = critic_t(obs_n_n, action_tar).reshape(-1)  # q_
+            #     tar_value = q_ * arglist.gamma * done_n + rew  # q_*gamma*done + reward
+            #     loss_c = torch.nn.MSELoss()(q, tar_value)  # bellman equation
+            #     opt_c.zero_grad()
+            #     loss_c.backward()
+            #     # nn.utils.clip_grad_norm_(critic_c.parameters(), arglist.max_grad_norm)
+            #     opt_c.step()
 
-                # --use the data to update the ACTOR
-                # There is no need to cal other agent's action
-                model_out, policy_c_new = actor_c( \
-                    obs_n_o[:, obs_size[agent_idx][0] - 45:obs_size[agent_idx][1] - 45], model_original_out=True)
-                # update the aciton of this agent
-                action_cur_o[:, action_size[agent_idx][0] - 6:action_size[agent_idx][1] - 6] = policy_c_new
-                loss_pse = torch.mean(torch.pow(model_out, 2))
-                loss_a = torch.mul(-1, torch.mean(critic_c(obs_n_o, action_cur_o)))
+            #     # --use the data to update the ACTOR
+            #     # There is no need to cal other agent's action
+            #     model_out, policy_c_new = actor_c( \
+            #         obs_n_o[:, obs_size[agent_idx][0] - 45:obs_size[agent_idx][1] - 45], model_original_out=True)
+            #     # update the aciton of this agent
+            #     action_cur_o[:, action_size[agent_idx][0] - 6:action_size[agent_idx][1] - 6] = policy_c_new
+            #     loss_pse = torch.mean(torch.pow(model_out, 2))
+            #     loss_a = torch.mul(-1, torch.mean(critic_c(obs_n_o, action_cur_o)))
 
-                opt_a.zero_grad()
-                (1e-3 * loss_pse + loss_a).backward()
-                # nn.utils.clip_grad_norm_(actor_c.parameters(), arglist.max_grad_norm)
-                opt_a.step()
+            #     opt_a.zero_grad()
+            #     (1e-3 * loss_pse + loss_a).backward()
+            #     # nn.utils.clip_grad_norm_(actor_c.parameters(), arglist.max_grad_norm)
+            #     opt_a.step()
 
         # save the model to the path_dir ---cnt by update number
         if update_cnt > arglist.start_save_model and update_cnt % arglist.fre4save_model == 0:
@@ -1028,6 +1089,13 @@ def train_mix_no_jammer(arglist, type):
                 continue
 
 
+def print_with_timestamp(message):
+    # 获取当前时间，包括毫秒
+    now = datetime.now()
+    # 格式化时间字符串，精确到毫秒
+    timestamp = now.strftime("%Y-%m-%d %H:%M:%S") + f".{now.microsecond // 1000:03d}"
+    print(f"[{timestamp}] {message}")
+
 def train_mix_ax(arglist, type):
     """
     init the env, agent and train the agents
@@ -1088,18 +1156,18 @@ def train_mix_ax(arglist, type):
     for episode_gone in range(arglist.max_episode):
         # cal the reward print the debug data
         # print(game_step)
-        if game_step > 1 and game_step % 20 == 0:
-            mean_rw_t = round(np.mean(episode_rewards_t[-40:-1]), 3)
-            # mean_rw_j = round(np.mean(episode_rewards_j[-400:-1]), 3)
-            var_rw_t = round(np.var(episode_rewards_t[-40:-1]), 3)
-            # var_rw_j = round(np.var(episode_rewards_j[-400:-1]), 3)
-            df = pd.read_csv('rw_mix_no_jammer.csv')
-            df.loc[int(game_step / 200), 'mean_rw_t'] = mean_rw_t
-            df.loc[int(game_step / 200), 'var_rw_t'] = var_rw_t
-            # df.loc[int(game_step / 200), 'mean_rw_j'] = mean_rw_j
-            # df.loc[int(game_step / 200), 'var_rw_j'] = var_rw_j
-            print(" " * 3 + 'typical mean reward:{} at {}'.format(mean_rw_t, game_step / 20), end='\n')
-            df.to_csv('rw_mix_no_jammer.csv', index=False)
+        # if game_step > 1 and game_step % 20 == 0:
+        #     mean_rw_t = round(np.mean(episode_rewards_t[-40:-1]), 3)
+        #     # mean_rw_j = round(np.mean(episode_rewards_j[-400:-1]), 3)
+        #     var_rw_t = round(np.var(episode_rewards_t[-40:-1]), 3)
+        #     # var_rw_j = round(np.var(episode_rewards_j[-400:-1]), 3)
+        #     df = pd.read_csv('rw_mix_no_jammer.csv')
+        #     df.loc[int(game_step / 200), 'mean_rw_t'] = mean_rw_t
+        #     df.loc[int(game_step / 200), 'var_rw_t'] = var_rw_t
+        #     # df.loc[int(game_step / 200), 'mean_rw_j'] = mean_rw_j
+        #     # df.loc[int(game_step / 200), 'var_rw_j'] = var_rw_j
+        #     print(" " * 3 + 'typical mean reward:{} at {}'.format(mean_rw_t, game_step / 20), end='\n')
+        #     df.to_csv('rw_mix_no_jammer.csv', index=False)
 
         for episode_cnt in range(arglist.per_episode_max_len):
             # get action
@@ -1112,7 +1180,7 @@ def train_mix_ax(arglist, type):
             new_obs_n, rew_n, rew_n_avg_queue_delta, rew_n_avg_satisfaction, rew_n_power_penalty, done_n = env.step(action_n=action_n)
 
             if episode_cnt == arglist.per_episode_max_len - 1:
-                print(f"episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
+                print_with_timestamp(f"episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
 
             # print(new_obs_n, rew_n, done_n)
             # # save the experience

@@ -147,13 +147,13 @@ class ENVIRONMENT:
 class BEAMFORMINGENV:
     def __init__(self):
         # === Path Configuration ===
-        system_config_path = '/root/mappo/data4DL/systemConfig.mat'
-        embb_cell_sat_pairing_path = '/root/mappo/data4DL/eMBBCellSatPairing.mat'
-        urllc_cell_sat_pairing_path = '/root/mappo/data4DL/URLLCCellSatPairing.mat'
-        access_status_path = '/root/mappo/data4DL/accessStatus.mat'
-        embb_demand_path = '/root/mappo/data4DL/eMBBDataDemand.mat'
-        urllc_demand_path = '/root/mappo/data4DL/URLLCDataDemand.mat'
-        channel_matrix_path = '/root/mappo/data4DL/largeScale'
+        system_config_path = './data4DL/systemConfig.mat'
+        embb_cell_sat_pairing_path = './data4DL/eMBBCellSatPairing.mat'
+        urllc_cell_sat_pairing_path = './data4DL/URLLCCellSatPairing.mat'
+        access_status_path = './data4DL/accessStatus.mat'
+        embb_demand_path = './data4DL/eMBBDataDemand.mat'
+        urllc_demand_path = './data4DL/URLLCDataDemand.mat'
+        channel_matrix_path = './data4DL/largeScale'
 
         # log_dir = 'logs'
         # model_dir = 'saved_models'
