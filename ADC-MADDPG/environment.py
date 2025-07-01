@@ -173,7 +173,7 @@ class BEAMFORMINGENV:
         self.cell_count = self.env.K
         self.beam_count = self.env.B
         self.observation_space = [self.cell_count * 4] * self.n
-        self.action_space = [(1 + self.beam_count)] * self.n
+        self.action_space = [(self.beam_count * 2)] * self.n
             
     def reset(self):
         self.env.reset()

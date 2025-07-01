@@ -4,7 +4,7 @@
         {
             "name": "train",
             "type": "debugpy",
-            "python": "/root/miniconda3/bin/python",
+            "python": "/mnt/hdd/qizheng/miniconda3/envs/py310y/bin/python",
             "program": "./MAPPO4Beamforming/train.py",
             "console": "integratedTerminal",
             "request": "launch"
@@ -12,7 +12,7 @@
         {
             "name": "train_ddpg",
             "type": "debugpy",
-            "python": "/root/miniconda3/bin/python",
+            "python": "/mnt/hdd/qizheng/miniconda3/envs/py310y/bin/python",
             "program": "./ADC-MADDPG/main_openai.py",
             "console": "integratedTerminal",
             "request": "launch"

@@ -14,11 +14,18 @@ from environment import *
 from model import openai_actor, openai_critic, openai_critic_double_q, critic_adq, critic_attention_v3, critic_adq_v2
 from itertools import chain
 from datetime import datetime
+from torch.utils.tensorboard import SummaryWriter
 
 global double_q_delay_fre, double_q_delay_cnt
 double_q_delay_fre = 2
 double_q_delay_cnt = 1
 
+def print_with_timestamp(message):
+    # 获取当前时间，包括毫秒
+    now = datetime.now()
+    # 格式化时间字符串，精确到毫秒
+    timestamp = now.strftime("%Y-%m-%d %H:%M:%S") + f".{now.microsecond // 1000:03d}"
+    print(f"[{timestamp}] {message}")
 
 def get_trainers(n, obs_shape_n, action_shape_n, arglist):
     """
@@ -566,7 +573,7 @@ def agents_train_mix(arglist, game_step, update_cnt, memory_t, memory_j, obs_siz
     return update_cnt, actors_cur, actors_tar, critics_cur, critics_tar
 
 def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_size, action_size, \
-                     actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, type, random=True):
+                     actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, type, random=True):
     """
     use this func to make the "main" func clean
     par:
@@ -583,6 +590,9 @@ def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_
         # update every agent in different memory batch
         for agent_idx, (actor_c, actor_t, critic_c, critic_t, opt_a, opt_c) in \
                 enumerate(zip(actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c)):
+            if agent_idx != 0:
+                continue
+
             if opt_c == None: continue  # jump to the next model update
 
             _obs_n_o, _action_n, _rew_n, _obs_n_n, _done_n = memory_t.sample( \
@@ -621,6 +631,10 @@ def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_
             (1e-3 * loss_pse + loss_a).backward()
             # nn.utils.clip_grad_norm_(actor_c.parameters(), arglist.max_grad_norm)
             opt_a.step()
+            
+            writer.add_scalar('critic_loss', loss_c.item(), game_step)
+            writer.add_scalar('agent_loss', loss_a.item(), game_step)
+            print_with_timestamp(f"critic_loss: {loss_c}, agent_loss: {loss_a}")
 
             # # --use the date to update the CRITIC of typical UAVs
             # if agent_idx < AGENT_NUM:
@@ -1088,14 +1102,6 @@ def train_mix_no_jammer(arglist, type):
                 episode_rewards_j.append(0)
                 continue
 
-
-def print_with_timestamp(message):
-    # 获取当前时间，包括毫秒
-    now = datetime.now()
-    # 格式化时间字符串，精确到毫秒
-    timestamp = now.strftime("%Y-%m-%d %H:%M:%S") + f".{now.microsecond // 1000:03d}"
-    print(f"[{timestamp}] {message}")
-
 def train_mix_ax(arglist, type):
     """
     init the env, agent and train the agents
@@ -1153,6 +1159,11 @@ def train_mix_ax(arglist, type):
             'var_rw_j': []}
     df = pd.DataFrame(date)
     df.to_csv('rw_mix_no_jammer.csv', index=False, mode='w')
+    
+    print('=4 init tensorboards ...')
+    print('=================================')
+    writer = SummaryWriter('maddpg_beamforming/loss')
+        
     for episode_gone in range(arglist.max_episode):
         # cal the reward print the debug data
         # print(game_step)
@@ -1179,8 +1190,12 @@ def train_mix_ax(arglist, type):
             # new_obs_n, rew_n, done_n = env.step(action_n=action_n)
             new_obs_n, rew_n, rew_n_avg_queue_delta, rew_n_avg_satisfaction, rew_n_power_penalty, done_n = env.step(action_n=action_n)
 
-            if episode_cnt == arglist.per_episode_max_len - 1:
+            if game_step % arglist.learning_fre == 0:
                 print_with_timestamp(f"episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
+
+            writer.add_scalar('total_reward', sum(rew_n), game_step)
+            writer.add_scalar('urllc--rew_n--avg_queue_delta', rew_n_avg_queue_delta, game_step)
+            writer.add_scalar('embb--rew_n--avg_satisfaction', rew_n_avg_satisfaction, game_step)
 
             # print(new_obs_n, rew_n, done_n)
             # # save the experience
@@ -1191,10 +1206,15 @@ def train_mix_ax(arglist, type):
             # episode_rewards_j[-1] += np.sum(rew_n[-2:])
             for i, rew in enumerate(rew_n): agent_rewards[i][-1] += rew
 
+            # init static variable
+            OBJ_DIMS = env.observation_space[0]
+            ACT_DIMS = env.action_space[0]
+            AGENT_NUM = env.n
+
             # train our agents
             update_cnt, actors_cur, actors_tar, critics_cur, critics_tar = agents_train_mix_ax( \
                 arglist, game_step, update_cnt, memory_t, memory_j, obs_size, action_size, \
-                actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, type=type)
+                actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, type=type)
 
             # update the obs_n
             game_step += 1

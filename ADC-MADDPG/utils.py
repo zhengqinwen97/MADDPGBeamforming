@@ -31,10 +31,10 @@ def compute_reward(
     agent_power_penalty = (overuse + underuse) / (total_power + 1e-8)
 
     # --- Final reward per agent ---
-    reward = agent_satisfaction + alpha * (-urllc_queues_delta) - beta * agent_power_penalty
+    reward = agent_satisfaction + alpha * urllc_queues_delta - beta * agent_power_penalty
 
     # --- Log stats ---
-    avg_queue_delta = torch.mean(-urllc_queues_delta)
+    avg_queue_delta = torch.mean(urllc_queues_delta)
     avg_satisfaction = agent_satisfaction  # Already scalar
     power_penalty = torch.mean(agent_power_penalty)
 

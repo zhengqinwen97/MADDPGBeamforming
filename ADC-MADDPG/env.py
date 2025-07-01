@@ -28,7 +28,7 @@ class SatelliteEnv:
         self.T = 100
         self.bandwidth = config["bandwidth"]
         self.noise_power = config["noise_power"]
-        self.total_power = config["total_power"]
+        self.total_power = config["total_power"] * 10
         self.tx_element_gain = config["tx_element_gain"]
         self.rx_gain = config["rx_gain"]
 
@@ -58,7 +58,7 @@ class SatelliteEnv:
         # --- Step 0: Initial allocation (uniform across paired cells) ---
         def normalize_non_negative(lst):
             # 步骤 1: 将负数替换为 0
-            non_negative = [max(x, 0) for x in lst]
+            non_negative = [max(x + 1.0, 0) for x in lst]
             
             # 步骤 2: 归一化，使总和为 1
             total = sum(non_negative)
@@ -70,7 +70,7 @@ class SatelliteEnv:
             normalized = [x / total for x in non_negative]
             return normalized
         
-        urllc_actions = [normalize_non_negative(x)[1:] for x in urllc_actions]
+        urllc_actions = [normalize_non_negative(x)[self.B:] for x in urllc_actions]
         urllc_actions = np.array([[x * self.total_power for x in xs] for xs in urllc_actions], dtype=np.float32)
 
         embb_power = self.allocate_embb_power(urllc_actions)  # Custom logic
@@ -81,7 +81,7 @@ class SatelliteEnv:
 
         # === Compute delta (avoid divide by zero) ===
         eps = 1e-8
-        queue_delta = (queue_state_mid - queue_state_after) / (queue_state_mid + eps)
+        queue_delta = (queue_state_mid - queue_state_after) / (queue_state_mid - queue_state_prev + eps)
 
         reward, avg_queue_delta, avg_satisfaction, power_penalty = compute_reward(
             embb_rate=embb_rate,
