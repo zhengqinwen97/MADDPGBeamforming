@@ -573,7 +573,7 @@ def agents_train_mix(arglist, game_step, update_cnt, memory_t, memory_j, obs_siz
     return update_cnt, actors_cur, actors_tar, critics_cur, critics_tar
 
 def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_size, action_size, \
-                     actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, type, random=True):
+                     actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, env, type, random=True):
     """
     use this func to make the "main" func clean
     par:
@@ -603,11 +603,11 @@ def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_
             obs_n_o = torch.from_numpy(_obs_n_o).to(arglist.device, torch.float)
             obs_n_n = torch.from_numpy(_obs_n_n).to(arglist.device, torch.float)
 
-            seq = list(range(AGENT_NUM))
+            seq = list(range(env.n))
             agent_seq = [agent_idx] + [idx for idx in seq if idx != agent_idx]
-            action_tar = actors_tar[agent_idx](obs_n_n[:, :OBJ_DIMS]).detach()
+            action_tar = actors_tar[agent_idx](obs_n_n[:, :env.observation_space[0]]).detach()
             for i,idx in enumerate(agent_seq[1:]):
-                action_tar = torch.cat((action_tar, actors_tar[idx](obs_n_n[:,(i+1)*OBJ_DIMS : (i+1)*OBJ_DIMS+OBJ_DIMS]).detach()), dim = 1)
+                action_tar = torch.cat((action_tar, actors_tar[idx](obs_n_n[:,(i+1)*env.observation_space[0] : (i+1)*env.observation_space[0]+env.observation_space[0]]).detach()), dim = 1)
 
             q = critic_c(obs_n_o, action_cur_o).reshape(-1)  # q
             q_ = critic_t(obs_n_n, action_tar).reshape(-1)  # q_
@@ -621,17 +621,17 @@ def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_
             # --use the data to update the ACTOR
             # There is no need to cal other agent's action
             model_out, policy_c_new = actor_c( \
-                obs_n_o[:, :OBJ_DIMS], model_original_out=True)
+                obs_n_o[:, :env.observation_space[0]], model_original_out=True)
             # update the aciton of this agent
-            action_cur_o[:,:ACT_DIMS] = policy_c_new
-            loss_pse = torch.mean(torch.pow(model_out, ACT_DIMS))
+            action_cur_o[:,:env.action_space[0]] = policy_c_new
+            loss_pse = torch.mean(torch.pow(model_out, env.action_space[0]))
             loss_a = torch.mul(-1, torch.mean(critic_c(obs_n_o, action_cur_o)))
 
             opt_a.zero_grad()
             (1e-3 * loss_pse + loss_a).backward()
             # nn.utils.clip_grad_norm_(actor_c.parameters(), arglist.max_grad_norm)
             opt_a.step()
-            
+
             writer.add_scalar('critic_loss', loss_c.item(), game_step)
             writer.add_scalar('agent_loss', loss_a.item(), game_step)
             print_with_timestamp(f"critic_loss: {loss_c}, agent_loss: {loss_a}")
@@ -1190,12 +1190,14 @@ def train_mix_ax(arglist, type):
             # new_obs_n, rew_n, done_n = env.step(action_n=action_n)
             new_obs_n, rew_n, rew_n_avg_queue_delta, rew_n_avg_satisfaction, rew_n_power_penalty, done_n = env.step(action_n=action_n)
 
-            if game_step % arglist.learning_fre == 0:
-                print_with_timestamp(f"episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
+            # if game_step % arglist.learning_fre == 0:
+                # print_with_timestamp(f"episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
 
-            writer.add_scalar('total_reward', sum(rew_n), game_step)
-            writer.add_scalar('urllc--rew_n--avg_queue_delta', rew_n_avg_queue_delta, game_step)
-            writer.add_scalar('embb--rew_n--avg_satisfaction', rew_n_avg_satisfaction, game_step)
+            if (all(done_n)):
+                print_with_timestamp(f"episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
+                writer.add_scalar('total_reward', sum(rew_n), game_step)
+                # writer.add_scalar('urllc--rew_n--avg_queue_delta', rew_n_avg_queue_delta, game_step)
+                # writer.add_scalar('embb--rew_n--avg_satisfaction', rew_n_avg_satisfaction, game_step)
 
             # print(new_obs_n, rew_n, done_n)
             # # save the experience
@@ -1206,15 +1208,10 @@ def train_mix_ax(arglist, type):
             # episode_rewards_j[-1] += np.sum(rew_n[-2:])
             for i, rew in enumerate(rew_n): agent_rewards[i][-1] += rew
 
-            # init static variable
-            OBJ_DIMS = env.observation_space[0]
-            ACT_DIMS = env.action_space[0]
-            AGENT_NUM = env.n
-
             # train our agents
             update_cnt, actors_cur, actors_tar, critics_cur, critics_tar = agents_train_mix_ax( \
                 arglist, game_step, update_cnt, memory_t, memory_j, obs_size, action_size, \
-                actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, type=type)
+                actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, env, type=type)
 
             # update the obs_n
             game_step += 1

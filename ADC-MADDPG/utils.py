@@ -9,7 +9,7 @@ import os
 def compute_reward(
     embb_rate, embb_demand, urllc_queues_delta, urllc_actions,
     total_power, cell_sat_pairing_embb, t,
-    alpha=1, beta=1000
+    alpha=1e-7, beta=1000
 ):
     # --- Compute per-agent eMBB satisfaction rate ---
     valid_mask = cell_sat_pairing_embb[:, :, t] == 1
@@ -31,14 +31,14 @@ def compute_reward(
     agent_power_penalty = (overuse + underuse) / (total_power + 1e-8)
 
     # --- Final reward per agent ---
-    reward = agent_satisfaction + alpha * urllc_queues_delta - beta * agent_power_penalty
+    reward = alpha * urllc_queues_delta
 
     # --- Log stats ---
     avg_queue_delta = torch.mean(urllc_queues_delta)
     avg_satisfaction = agent_satisfaction  # Already scalar
     power_penalty = torch.mean(agent_power_penalty)
 
-    return reward, avg_queue_delta, avg_satisfaction, power_penalty
+    return reward, avg_queue_delta * alpha, avg_satisfaction, power_penalty
 
 
 # === MATLAB Dataset Parser ===

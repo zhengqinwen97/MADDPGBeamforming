@@ -170,11 +170,12 @@ class BEAMFORMINGENV:
                         embb_demand_path, urllc_demand_path,
                         channel_matrix_path)
         self.n = self.env.N
+        self.T = self.env.T
         self.cell_count = self.env.K
         self.beam_count = self.env.B
-        self.observation_space = [self.cell_count * 4] * self.n
-        self.action_space = [(self.beam_count * 2)] * self.n
-            
+        self.observation_space = [self.cell_count * 3 + self.T] * self.n
+        self.action_space = [self.beam_count] * self.n
+
     def reset(self):
         self.env.reset()
         return self.env.get_obs()

@@ -28,13 +28,14 @@ class SatelliteEnv:
         self.T = 100
         self.bandwidth = config["bandwidth"]
         self.noise_power = config["noise_power"]
-        self.total_power = config["total_power"] * 10
+        self.total_power = config["total_power"]
         self.tx_element_gain = config["tx_element_gain"]
         self.rx_gain = config["rx_gain"]
 
         # === Data tensors ===
-        self.embb_demand = torch.tensor(self.parser.embb_demand, dtype=torch.float32)
-        self.urllc_arrivals = torch.tensor(self.parser.urllc_arrivals, dtype=torch.float32)
+        self.embb_demand = torch.tensor(self.parser.embb_demand / 20, dtype=torch.float32)
+        self.urllc_arrivals = torch.tensor(self.parser.urllc_arrivals / 10, dtype=torch.float32)
+
         self.access_status = torch.tensor(self.parser.access_status, dtype=torch.bool)
         self.cell_sat_pairing_embb = torch.tensor(self.parser.cell_sat_pairing_embb, dtype=torch.bool)
         self.cell_sat_pairing_urllc = torch.tensor(self.parser.cell_sat_pairing_urllc, dtype=torch.bool)
@@ -43,6 +44,7 @@ class SatelliteEnv:
         self.reset()
 
     def reset(self):
+        self.total_reward = torch.zeros(24)
         self.t = 0
         self.queues = [[deque() for _ in range(self.N)] for _ in range(self.K)]
 
@@ -70,7 +72,7 @@ class SatelliteEnv:
             normalized = [x / total for x in non_negative]
             return normalized
         
-        urllc_actions = [normalize_non_negative(x)[self.B:] for x in urllc_actions]
+        urllc_actions = [normalize_non_negative(x)[:] for x in urllc_actions]
         urllc_actions = np.array([[x * self.total_power for x in xs] for xs in urllc_actions], dtype=np.float32)
 
         embb_power = self.allocate_embb_power(urllc_actions)  # Custom logic
@@ -81,7 +83,7 @@ class SatelliteEnv:
 
         # === Compute delta (avoid divide by zero) ===
         eps = 1e-8
-        queue_delta = (queue_state_mid - queue_state_after) / (queue_state_mid - queue_state_prev + eps)
+        queue_delta = queue_state_mid - queue_state_after
 
         reward, avg_queue_delta, avg_satisfaction, power_penalty = compute_reward(
             embb_rate=embb_rate,
@@ -93,9 +95,14 @@ class SatelliteEnv:
             t=self.t
         )
 
+        self.total_reward += reward
         self.t += 1
         done = self.t >= self.T
-        return reward, avg_queue_delta, avg_satisfaction, power_penalty, done
+
+        if done:
+            return self.total_reward, avg_queue_delta, avg_satisfaction, power_penalty, done
+        else:
+            return torch.zeros(24), avg_queue_delta, avg_satisfaction, power_penalty, done # 取消即时奖励
 
     # === Generate agent observations ===
     @torch.no_grad()
@@ -155,6 +162,7 @@ class SatelliteEnv:
         embb_pairing = self.cell_sat_pairing_embb[:, :, self.t].float()
         embb_pairing = torch.transpose(embb_pairing, 0, 1)
 
+
         # --- URLLC and eMBB demand ---
         urllc_demand = self.urllc_arrivals[:, :, self.t].float()  # [K, N]
         embb_demand = self.embb_demand.float().flatten()          # [K]
@@ -162,15 +170,19 @@ class SatelliteEnv:
         embb_demand = normalize_tensor(embb_demand, dims=(-1,))
         embb_demand = embb_demand.unsqueeze(0).repeat(queue_lengths.shape[0], 1)  # shape: [N, K]
         embb_demand = embb_demand * embb_pairing
-        urllc_demand = normalize_tensor(torch.transpose(urllc_demand, 0, 1), dims=(-1,)) 
+        urllc_demand = normalize_tensor(torch.transpose(urllc_demand, 0, 1), dims=(-1,))
         channel_slice = normalize_tensor(torch.log(channel_slice.permute(2, 0, 1)), dims=(-2, -1))
-        
+
+        one_hot = torch.zeros(self.N, self.T)
+        one_hot[:, self.t - 1] = 1.0  # 使用广播机制
+
         # combine tensors
         channel_flat = channel_slice.mean(dim=2)  # -> [24, 280]
         # channel_flat = channel_slice.view(24, -1)
         combined_tensor = torch.cat([
+            one_hot,
             queue_lengths,
-            embb_demand,
+            # embb_demand,
             urllc_demand,
             channel_flat
         ], dim=1)
@@ -214,7 +226,7 @@ class SatelliteEnv:
 
             for b, (k, _) in enumerate(sorted_users[:self.B]):
                 self.urllc_user_map[n][b] = k
-     
+
     # === Allocate eMBB power for each satellite ===
     def allocate_embb_power_single_satellite(self, urllc_actions, embb_power, n):
         paired_indices = torch.nonzero(self.cell_sat_pairing_embb[:, n, self.t], as_tuple=False).flatten()
