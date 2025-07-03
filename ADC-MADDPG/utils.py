@@ -31,14 +31,14 @@ def compute_reward(
     agent_power_penalty = (overuse + underuse) / (total_power + 1e-8)
 
     # --- Final reward per agent ---
-    reward = alpha * urllc_queues_delta
+    reward = urllc_queues_delta
 
     # --- Log stats ---
     avg_queue_delta = torch.mean(urllc_queues_delta)
     avg_satisfaction = agent_satisfaction  # Already scalar
     power_penalty = torch.mean(agent_power_penalty)
 
-    return reward, avg_queue_delta * alpha, avg_satisfaction, power_penalty
+    return reward, avg_queue_delta, avg_satisfaction, power_penalty
 
 
 # === MATLAB Dataset Parser ===

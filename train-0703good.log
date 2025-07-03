@@ -1,0 +1,779 @@
+device: cuda:0
+AX-MADDPG
+=============================
+=1 Env resilient path planning is right ...
+=============================
+=2 The 24 agents are inited ...
+=============================
+=3 starting iterations ...
+=============================
+=4 init tensorboards ...
+=================================
+[2025-07-03 15:36:31.820] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.8209119439125061, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:36:37.798] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.46656563878059387, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:36:45.845] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.37105491757392883, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:36:54.349] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.3893221318721771, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:37:01.749] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.3832222521305084, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:37:07.824] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.31517234444618225, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:37:14.117] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.41395318508148193, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:37:15.818] =============> episode_gone: 0, rew_n: 1004.1802082061768, rew_n_avg_queue_delta: 0.3597343862056732, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:37:22.494] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.4732241630554199, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:37:29.643] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.36626172065734863, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:37:35.913] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.37027016282081604, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:37:42.075] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.29090416431427, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:37:48.375] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.2784355580806732, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:37:54.543] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.4851353168487549, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:37:57.216] =============> episode_gone: 0, rew_n: 1031.4574222564697, rew_n_avg_queue_delta: 0.3799518048763275, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:38:01.914] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.4212076663970947, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:38:09.014] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.44275879859924316, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:38:17.709] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.3282746374607086, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:38:25.703] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.41015008091926575, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:38:34.159] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.3935128152370453, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:38:40.711] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.4138081967830658, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:38:45.239] =============> episode_gone: 0, rew_n: 1012.2212333679199, rew_n_avg_queue_delta: 0.3577767610549927, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:38:47.231] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.5209931135177612, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:38:54.951] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.46725785732269287, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:39:03.219] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.3728303015232086, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:39:11.217] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.49008533358573914, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:39:18.258] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.3865044116973877, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:39:27.119] episode_gone: 0, rew_n: 0.0, rew_n_avg_queue_delta: 0.46684691309928894, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:39:35.220] =============> episode_gone: 0, rew_n: 1014.4704532623291, rew_n_avg_queue_delta: 0.3574424088001251, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:39:35.877] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.8330145478248596, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:39:42.443] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.5013212561607361, rew_n_avg_satisfaction: 4.0529891975893406e-07, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:39:50.898] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.4048835039138794, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:39:58.386] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.3673926293849945, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:40:04.799] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.3224247395992279, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:40:11.169] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.35936489701271057, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 15:40:17.553] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.41740021109580994, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:40:18.761] =============> episode_gone: 1, rew_n: 1015.1193408966064, rew_n_avg_queue_delta: 0.3531476557254791, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:40:23.668] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.45520392060279846, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:40:29.907] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.3109315037727356, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:40:36.464] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.4247044622898102, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:40:42.675] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.32512351870536804, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:40:48.918] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.3557460308074951, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:40:55.455] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.3990423381328583, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:40:58.194] =============> episode_gone: 1, rew_n: 1002.4627113342285, rew_n_avg_queue_delta: 0.3666250705718994, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:41:02.326] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.4644209146499634, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:41:08.535] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.4119758605957031, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:41:15.244] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.37438929080963135, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:41:21.411] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.4672684967517853, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:41:27.603] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.387821763753891, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:41:33.818] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.4147012233734131, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:41:38.158] =============> episode_gone: 1, rew_n: 1046.462640762329, rew_n_avg_queue_delta: 0.4381333887577057, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:41:40.474] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.4769972860813141, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:41:48.519] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.46135982871055603, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 15:41:54.773] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.35909947752952576, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:42:00.983] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.4468620717525482, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:42:07.293] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.3645436763763428, rew_n_avg_satisfaction: 1.5108678752540072e-08, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:42:13.399] episode_gone: 1, rew_n: 0.0, rew_n_avg_queue_delta: 0.4959704577922821, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:42:19.183] =============> episode_gone: 1, rew_n: 1047.3860168457031, rew_n_avg_queue_delta: 0.41330257058143616, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:42:19.587] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.7949815392494202, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:42:25.875] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.5099964737892151, rew_n_avg_satisfaction: 4.0529891975893406e-07, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:42:33.802] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.428284615278244, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:42:41.038] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.395900696516037, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:42:47.127] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.4026137888431549, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:42:53.246] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.31904008984565735, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:42:59.723] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.3938438594341278, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:43:00.917] =============> episode_gone: 2, rew_n: 1044.5337219238281, rew_n_avg_queue_delta: 0.4053622782230377, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:43:05.948] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.46810874342918396, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:43:12.900] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.3913278579711914, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 15:43:18.728] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.40038180351257324, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:43:24.566] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.3905470371246338, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:43:31.686] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.2994288206100464, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:43:38.026] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.41024425625801086, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 15:43:40.767] =============> episode_gone: 2, rew_n: 1035.0763149261475, rew_n_avg_queue_delta: 0.42181214690208435, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:43:45.165] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.37831807136535645, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:43:53.158] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.4214805066585541, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 15:44:01.971] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.3912876546382904, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 15:44:10.081] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.37490370869636536, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:44:19.244] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.4197309911251068, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:44:27.609] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.40412434935569763, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:44:33.299] =============> episode_gone: 2, rew_n: 1010.9329967498779, rew_n_avg_queue_delta: 0.41017481684684753, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:44:35.457] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.5552822947502136, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:44:43.255] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.46175289154052734, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:44:52.187] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.40472912788391113, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:45:00.866] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.4790203273296356, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:45:09.690] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.3901500999927521, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 15:45:18.542] episode_gone: 2, rew_n: 0.0, rew_n_avg_queue_delta: 0.49690935015678406, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:45:26.267] =============> episode_gone: 2, rew_n: 1043.0477075576782, rew_n_avg_queue_delta: 0.3322877287864685, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:45:26.743] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.7415831089019775, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:45:33.202] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.46457043290138245, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:45:41.503] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.43076643347740173, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:45:49.318] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.350623220205307, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:45:55.450] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.43815645575523376, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:46:01.656] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.333048015832901, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:46:11.547] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.46031078696250916, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 15:46:12.836] =============> episode_gone: 3, rew_n: 1050.9285678863525, rew_n_avg_queue_delta: 0.3743068277835846, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:46:18.004] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.4806031286716461, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:46:25.165] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.36565372347831726, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:46:33.608] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.45079508423805237, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:46:41.480] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.3691016137599945, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:46:49.945] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.31470927596092224, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:46:57.248] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.4059150218963623, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:46:59.882] =============> episode_gone: 3, rew_n: 1033.916660308838, rew_n_avg_queue_delta: 0.4018888771533966, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:47:04.178] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.48930010199546814, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:47:10.819] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.4706787168979645, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:47:17.683] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.3902829587459564, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:47:26.657] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.3499617278575897, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:47:35.055] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.4026128351688385, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:47:43.760] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.3638352155685425, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:47:49.909] =============> episode_gone: 3, rew_n: 1022.7283382415771, rew_n_avg_queue_delta: 0.37117958068847656, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:47:52.895] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.5621024370193481, rew_n_avg_satisfaction: 8.423430841730806e-09, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:48:01.416] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.4801349341869354, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:48:08.537] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.42788389325141907, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 15:48:16.794] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.48668769001960754, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:48:22.853] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.410157710313797, rew_n_avg_satisfaction: 1.5108678752540072e-08, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 15:48:29.534] episode_gone: 3, rew_n: 0.0, rew_n_avg_queue_delta: 0.4279322326183319, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:48:35.457] =============> episode_gone: 3, rew_n: 1027.0211143493652, rew_n_avg_queue_delta: 0.42047134041786194, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:48:35.922] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.8057263493537903, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:48:43.098] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.5184228420257568, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:48:51.378] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.37364277243614197, rew_n_avg_satisfaction: 1.7528009044198711e-09, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:48:57.501] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.3899723291397095, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:49:03.678] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.4680027961730957, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:49:09.834] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.34741663932800293, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:49:18.037] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.41503605246543884, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:49:19.273] =============> episode_gone: 4, rew_n: 1091.108512878418, rew_n_avg_queue_delta: 0.3894387185573578, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:49:24.466] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.45417889952659607, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:49:30.606] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.33241984248161316, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:49:37.038] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.4215376377105713, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:49:43.214] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.3416297137737274, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:49:49.383] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.3367604911327362, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:49:55.577] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.37749144434928894, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:49:58.662] =============> episode_gone: 4, rew_n: 1046.1443367004395, rew_n_avg_queue_delta: 0.3907276690006256, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 15:50:02.556] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.41451701521873474, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 15:50:08.594] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.49568042159080505, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:50:15.685] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.3960404098033905, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:50:22.671] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.4009150564670563, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552080142522755e-08
+[2025-07-03 15:50:29.678] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.39023470878601074, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:50:35.921] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.42207372188568115, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.4759115525039306e-08
+[2025-07-03 15:50:41.654] =============> episode_gone: 4, rew_n: 1017.996171951294, rew_n_avg_queue_delta: 0.4070824384689331, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:50:44.331] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.5128900408744812, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:50:50.949] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.4284133017063141, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:50:57.486] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.33416855335235596, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 15:51:05.354] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.5105246305465698, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.475910841961195e-08
+[2025-07-03 15:51:11.461] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.40703046321868896, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:51:19.378] episode_gone: 4, rew_n: 0.0, rew_n_avg_queue_delta: 0.48969927430152893, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:51:26.376] =============> episode_gone: 4, rew_n: 1027.8324098587036, rew_n_avg_queue_delta: 0.35838404297828674, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:51:26.967] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.7293415665626526, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:51:35.029] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.49973437190055847, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:51:44.276] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.37877845764160156, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:51:52.710] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.3905836045742035, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:52:00.275] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.43254920840263367, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:52:06.497] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.35171547532081604, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:52:14.472] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.4387913942337036, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:52:16.265] =============> episode_gone: 5, rew_n: 1033.72744846344, rew_n_avg_queue_delta: 0.337880939245224, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:52:23.911] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.48871779441833496, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:52:32.424] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.3344304859638214, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:52:39.492] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.34608814120292664, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:52:47.657] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.30162516236305237, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:52:53.824] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.3594695031642914, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:53:00.377] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.3611450493335724, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:53:03.270] =============> episode_gone: 5, rew_n: 1004.3317070007324, rew_n_avg_queue_delta: 0.37818360328674316, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:53:08.211] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.4526904821395874, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:53:14.684] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.4357354938983917, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:53:21.967] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.3773122727870941, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:53:28.894] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.39504972100257874, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:53:37.556] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.38843074440956116, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:53:46.188] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.4220989942550659, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:53:52.441] =============> episode_gone: 5, rew_n: 1007.4237785339355, rew_n_avg_queue_delta: 0.356510728597641, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:53:55.059] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.5483391284942627, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:54:03.450] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.42742881178855896, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:54:10.767] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.3591182231903076, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:54:17.288] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.42308178544044495, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:54:25.858] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.4000438153743744, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:54:32.199] episode_gone: 5, rew_n: 0.0, rew_n_avg_queue_delta: 0.47738489508628845, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 15:54:38.024] =============> episode_gone: 5, rew_n: 1007.385139465332, rew_n_avg_queue_delta: 0.35680636763572693, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:54:38.503] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.7731636166572571, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:54:44.604] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.45060935616493225, rew_n_avg_satisfaction: 9.687071589326024e-09, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:54:51.004] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.45248493552207947, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:54:57.322] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.3850473463535309, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:55:03.335] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.39139363169670105, rew_n_avg_satisfaction: 1.8102880972037383e-08, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:55:09.380] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.3811378479003906, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:55:16.261] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.3681821823120117, rew_n_avg_satisfaction: 1.08478852567373e-08, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:55:17.423] =============> episode_gone: 6, rew_n: 1059.8531475067139, rew_n_avg_queue_delta: 0.43925192952156067, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:55:23.980] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.4548370838165283, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:55:33.105] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.32567912340164185, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:55:41.262] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.42753180861473083, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:55:50.383] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.3827114403247833, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:55:59.296] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.3269590437412262, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:56:08.209] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.3886755406856537, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:56:11.855] =============> episode_gone: 6, rew_n: 981.3100872039795, rew_n_avg_queue_delta: 0.3176238536834717, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:56:16.246] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.43296870589256287, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:56:25.170] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.46043989062309265, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:56:32.565] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.42820239067077637, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:56:40.960] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.40824198722839355, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:56:49.106] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.39741456508636475, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:56:57.548] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.46655941009521484, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:57:03.673] =============> episode_gone: 6, rew_n: 1022.2472534179688, rew_n_avg_queue_delta: 0.39649882912635803, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:57:06.357] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.5440780520439148, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:57:14.067] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.4295561611652374, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:57:21.995] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.32367587089538574, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 15:57:30.777] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.4078453779220581, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:57:39.045] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.36505913734436035, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:57:47.271] episode_gone: 6, rew_n: 0.0, rew_n_avg_queue_delta: 0.4039810001850128, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 15:57:56.285] =============> episode_gone: 6, rew_n: 1002.8931941986084, rew_n_avg_queue_delta: 0.3694173991680145, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:57:56.871] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.8092410564422607, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:58:06.123] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.4581046998500824, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:58:14.399] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.422151654958725, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 15:58:23.267] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.35348424315452576, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:58:30.793] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.4324033260345459, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:58:40.449] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.391519159078598, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:58:49.274] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.48081138730049133, rew_n_avg_satisfaction: 7.92038168384579e-09, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 15:58:50.915] =============> episode_gone: 7, rew_n: 1019.5121240615845, rew_n_avg_queue_delta: 0.40755489468574524, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:58:58.504] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.4631495475769043, rew_n_avg_satisfaction: 1.0316289156264702e-08, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 15:59:07.741] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.3711353540420532, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:59:15.820] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.3810313642024994, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:59:24.302] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.35091614723205566, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:59:31.884] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.3583787977695465, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:59:39.665] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.3837597072124481, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 15:59:42.476] =============> episode_gone: 7, rew_n: 1005.4508438110352, rew_n_avg_queue_delta: 0.32888320088386536, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 15:59:47.142] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.5018573999404907, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 15:59:54.047] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.3892880976200104, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:00:01.448] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.3874737024307251, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:00:07.596] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.4073490798473358, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:00:14.015] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.3544808328151703, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:00:21.823] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.4251188337802887, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:00:26.819] =============> episode_gone: 7, rew_n: 1014.3303813934326, rew_n_avg_queue_delta: 0.35853567719459534, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:00:28.847] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.534866988658905, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:00:35.113] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.4509763717651367, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:00:41.558] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.41627538204193115, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:00:47.770] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.49306702613830566, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:00:53.964] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.4474571645259857, rew_n_avg_satisfaction: 1.5108678752540072e-08, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:01:00.221] episode_gone: 7, rew_n: 0.0, rew_n_avg_queue_delta: 0.4599687159061432, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:01:05.958] =============> episode_gone: 7, rew_n: 1056.8050537109375, rew_n_avg_queue_delta: 0.3604901134967804, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:01:06.411] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.8069290518760681, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:01:13.290] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.505787193775177, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:01:21.774] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.3764066994190216, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:01:30.490] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.32329097390174866, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:01:37.266] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.40865710377693176, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:01:43.139] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.40110650658607483, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:01:50.116] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.4545699656009674, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:01:51.557] =============> episode_gone: 8, rew_n: 1026.8735637664795, rew_n_avg_queue_delta: 0.42149654030799866, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:01:56.575] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.40997079014778137, rew_n_avg_satisfaction: 1.0316289156264702e-08, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:02:02.809] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.33344700932502747, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:02:11.796] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.4099177122116089, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:02:19.158] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.32810214161872864, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:02:27.940] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.4027293622493744, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:02:37.097] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.4484902620315552, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:02:41.073] =============> episode_gone: 8, rew_n: 1024.2663192749023, rew_n_avg_queue_delta: 0.4255692660808563, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:02:45.813] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.5368218421936035, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:02:52.715] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.45698484778404236, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:03:00.166] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.36628273129463196, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:03:06.351] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.4087495505809784, rew_n_avg_satisfaction: 1.0316289156264702e-08, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:03:14.075] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.38213565945625305, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:03:19.945] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.5015079379081726, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:03:24.024] =============> episode_gone: 8, rew_n: 1033.0884017944336, rew_n_avg_queue_delta: 0.3595019280910492, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:03:25.865] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.5326756834983826, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:03:31.769] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.4321841895580292, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:03:37.922] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.3517451584339142, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:03:46.384] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.4526499807834625, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:03:55.113] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.38062289357185364, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.475910841961195e-08
+[2025-07-03 16:04:03.240] episode_gone: 8, rew_n: 0.0, rew_n_avg_queue_delta: 0.4787440598011017, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:04:11.070] =============> episode_gone: 8, rew_n: 1032.6976928710938, rew_n_avg_queue_delta: 0.3908051550388336, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:04:11.566] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.7473922371864319, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:04:18.127] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.4794168174266815, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 16:04:25.287] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.4228765666484833, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:04:34.573] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.3370997905731201, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:04:43.295] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.35861217975616455, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:04:52.297] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.3704565763473511, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:05:00.556] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.43084999918937683, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:05:01.709] =============> episode_gone: 9, rew_n: 1016.1998414993286, rew_n_avg_queue_delta: 0.3669546842575073, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:05:06.796] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.5069800019264221, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:05:14.004] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.3392222821712494, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:05:22.345] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.41449153423309326, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:05:30.353] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.33964547514915466, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:05:38.261] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.3325486183166504, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:05:46.447] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.44767847657203674, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:05:50.553] =============> episode_gone: 9, rew_n: 995.1188716888428, rew_n_avg_queue_delta: 0.3789309561252594, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:05:55.616] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.45516443252563477, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:06:02.309] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.4142995774745941, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:06:10.918] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.4082934558391571, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:06:19.431] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.40228185057640076, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:06:27.964] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.4528234004974365, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:06:37.125] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.37982866168022156, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:06:43.569] =============> episode_gone: 9, rew_n: 1041.8590641021729, rew_n_avg_queue_delta: 0.3996015787124634, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:06:46.297] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.5048527121543884, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:06:54.338] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.42536652088165283, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:07:01.926] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.3415481150150299, rew_n_avg_satisfaction: 7.426415482569837e-09, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:07:07.841] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.4540892541408539, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:07:13.756] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.32917776703834534, rew_n_avg_satisfaction: 1.5108678752540072e-08, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:07:19.933] episode_gone: 9, rew_n: 0.0, rew_n_avg_queue_delta: 0.4056277275085449, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:07:26.041] =============> episode_gone: 9, rew_n: 989.5434970855713, rew_n_avg_queue_delta: 0.39341187477111816, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:07:26.639] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.7908258438110352, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:07:33.789] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.501354992389679, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:07:40.079] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.41840457916259766, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:07:46.279] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.4506884515285492, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:07:52.425] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.40651583671569824, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:07:58.555] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.3578832149505615, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:08:04.824] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.3899436295032501, rew_n_avg_satisfaction: 1.08478852567373e-08, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:08:06.004] =============> episode_gone: 10, rew_n: 1042.4623699188232, rew_n_avg_queue_delta: 0.3968813419342041, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:08:11.431] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.4277230203151703, rew_n_avg_satisfaction: 1.0316289156264702e-08, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:08:17.752] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.3997756242752075, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:08:23.905] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.3437384366989136, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:08:33.625] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.3939228057861328, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:08:39.808] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.33646830916404724, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:08:47.844] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.44431111216545105, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:08:51.474] =============> episode_gone: 10, rew_n: 1015.6486263275146, rew_n_avg_queue_delta: 0.34693703055381775, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:08:55.049] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.5349385142326355, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:09:01.349] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.39771461486816406, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:09:08.369] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.3414864242076874, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:09:15.323] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.4246272146701813, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:09:21.200] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.3884640634059906, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:09:27.133] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.37142205238342285, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:09:31.371] =============> episode_gone: 10, rew_n: 1015.4414234161377, rew_n_avg_queue_delta: 0.37193891406059265, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:09:33.210] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.5335612893104553, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:09:39.139] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.4542815685272217, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:09:45.082] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.3374539315700531, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:09:50.969] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.3876829147338867, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:09:56.859] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.33243289589881897, rew_n_avg_satisfaction: 1.5108678752540072e-08, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:10:02.831] episode_gone: 10, rew_n: 0.0, rew_n_avg_queue_delta: 0.46869993209838867, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:10:08.448] =============> episode_gone: 10, rew_n: 988.180585861206, rew_n_avg_queue_delta: 0.39181259274482727, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:10:08.887] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.8431033492088318, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:10:14.985] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.5301653146743774, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:10:21.043] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.37386131286621094, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:10:27.373] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.36102208495140076, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:10:33.587] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.4479593336582184, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:10:39.928] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.39091357588768005, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:10:46.223] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.4762156307697296, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:10:47.422] =============> episode_gone: 11, rew_n: 1044.4491052627563, rew_n_avg_queue_delta: 0.399945467710495, rew_n_avg_satisfaction: 4.321992985723e-09, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:10:52.741] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.45930957794189453, rew_n_avg_satisfaction: 1.0316289156264702e-08, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:10:59.130] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.32990992069244385, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:11:06.457] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.40931203961372375, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:11:12.672] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.3721557855606079, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:11:19.448] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.3052012324333191, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:11:26.944] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.36317768692970276, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:11:30.001] =============> episode_gone: 11, rew_n: 1022.6337566375732, rew_n_avg_queue_delta: 0.3734976351261139, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.475910841961195e-08
+[2025-07-03 16:11:33.703] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.4803040325641632, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:11:40.310] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.42219290137290955, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:11:46.606] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.3159710466861725, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:11:54.778] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.39007267355918884, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:12:01.703] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.45580384135246277, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:12:07.896] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.433412104845047, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:12:12.170] =============> episode_gone: 11, rew_n: 1036.5269355773926, rew_n_avg_queue_delta: 0.37397027015686035, rew_n_avg_satisfaction: 7.92038168384579e-09, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:12:14.147] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.554825484752655, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:12:20.585] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.4215901792049408, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 0.0
+[2025-07-03 16:12:27.108] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.38500523567199707, rew_n_avg_satisfaction: 7.426415482569837e-09, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 16:12:36.304] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.45301660895347595, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:12:43.676] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.40423130989074707, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:12:49.846] episode_gone: 11, rew_n: 0.0, rew_n_avg_queue_delta: 0.44590771198272705, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:12:55.739] =============> episode_gone: 11, rew_n: 987.7463283538818, rew_n_avg_queue_delta: 0.3675185739994049, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:12:56.152] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.8661158680915833, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:13:02.706] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.5308601260185242, rew_n_avg_satisfaction: 4.0529891975893406e-07, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:13:10.814] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.42391279339790344, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:13:19.376] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.31378433108329773, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:13:25.801] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.3611166477203369, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:13:32.488] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.3452230393886566, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:13:38.878] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.42165112495422363, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:13:39.962] =============> episode_gone: 12, rew_n: 1001.2409687042236, rew_n_avg_queue_delta: 0.36986908316612244, rew_n_avg_satisfaction: 4.321992985723e-09, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:13:44.934] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.480981707572937, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:13:51.212] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.32273373007774353, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:13:57.848] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.40838897228240967, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:14:04.356] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.36765623092651367, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:14:10.561] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.4149101972579956, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:14:16.913] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.384222149848938, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:14:19.638] =============> episode_gone: 12, rew_n: 1041.3140258789062, rew_n_avg_queue_delta: 0.3538869619369507, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:14:23.178] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.4225855767726898, rew_n_avg_satisfaction: 7.848981908864516e-07, rew_n_power_penalty: 2.4414061883248905e-08
+=start training ...                                                                                                    
+[2025-07-03 16:14:27.699] critic_loss: 12241.10546875, agent_loss: -1.0905524492263794
+[2025-07-03 16:14:34.767] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.4066862165927887, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:14:38.955] critic_loss: 8195.8828125, agent_loss: -1.9340860843658447
+[2025-07-03 16:14:42.107] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.3967432975769043, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:14:46.354] critic_loss: 9789.7998046875, agent_loss: -2.809993267059326
+[2025-07-03 16:14:49.633] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.43717992305755615, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 16:14:55.313] critic_loss: 16146.63671875, agent_loss: -3.6891703605651855
+[2025-07-03 16:14:59.654] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.42607733607292175, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:15:04.473] critic_loss: 14550.6708984375, agent_loss: -4.655999183654785
+[2025-07-03 16:15:07.709] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.4570034444332123, rew_n_avg_satisfaction: 3.6623093446763733e-09, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:15:13.217] critic_loss: 8132.27294921875, agent_loss: -5.578502655029297
+[2025-07-03 16:15:14.947] =============> episode_gone: 12, rew_n: 1036.7272510528564, rew_n_avg_queue_delta: 0.3521025478839874, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:15:17.610] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.6189079880714417, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:15:23.252] critic_loss: 9928.486328125, agent_loss: -6.510248184204102
+[2025-07-03 16:15:26.439] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.4491208493709564, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:15:30.830] critic_loss: 2094.28857421875, agent_loss: -7.232611656188965
+[2025-07-03 16:15:34.009] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.3234051764011383, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:15:38.408] critic_loss: 10276.541015625, agent_loss: -8.057130813598633
+[2025-07-03 16:15:41.926] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.4683253765106201, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:15:47.822] critic_loss: 6189.5009765625, agent_loss: -8.809488296508789
+[2025-07-03 16:15:51.164] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.3761330842971802, rew_n_avg_satisfaction: 1.5108678752540072e-08, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:15:55.473] critic_loss: 6043.6357421875, agent_loss: -9.486913681030273
+[2025-07-03 16:15:58.641] episode_gone: 12, rew_n: 0.0, rew_n_avg_queue_delta: 0.4702765643596649, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:16:02.832] critic_loss: 14414.8125, agent_loss: -10.371353149414062
+[2025-07-03 16:16:05.628] =============> episode_gone: 12, rew_n: 1015.6147594451904, rew_n_avg_queue_delta: 0.42461153864860535, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:16:06.090] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.7849724292755127, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:16:10.375] critic_loss: 7916.1748046875, agent_loss: -11.23225212097168
+[2025-07-03 16:16:14.193] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.5271125435829163, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:16:18.534] critic_loss: 6188.9609375, agent_loss: -11.971800804138184
+[2025-07-03 16:16:21.911] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.43090391159057617, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:16:28.136] critic_loss: 7867.39453125, agent_loss: -12.771463394165039
+[2025-07-03 16:16:31.335] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.3660995662212372, rew_n_avg_satisfaction: 3.727203878867158e-09, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:16:35.540] critic_loss: 8164.96044921875, agent_loss: -13.514421463012695
+[2025-07-03 16:16:38.668] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.4158073365688324, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:16:42.937] critic_loss: 13860.404296875, agent_loss: -14.502433776855469
+[2025-07-03 16:16:46.080] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.41332194209098816, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:16:50.422] critic_loss: 19716.06640625, agent_loss: -15.669971466064453
+[2025-07-03 16:16:53.665] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.36634454131126404, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:16:54.799] =============> episode_gone: 13, rew_n: 1040.085334777832, rew_n_avg_queue_delta: 0.34060657024383545, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:16:58.025] critic_loss: 15983.951171875, agent_loss: -16.903488159179688
+[2025-07-03 16:17:01.814] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.42152443528175354, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:17:07.804] critic_loss: 10154.81640625, agent_loss: -18.093505859375
+[2025-07-03 16:17:11.114] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.37949538230895996, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 16:17:16.763] critic_loss: 7831.99267578125, agent_loss: -19.163541793823242
+[2025-07-03 16:17:20.034] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.3821300268173218, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:17:25.347] critic_loss: 4198.2001953125, agent_loss: -19.945043563842773
+[2025-07-03 16:17:28.529] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.35756292939186096, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:17:32.846] critic_loss: 7686.8056640625, agent_loss: -20.592132568359375
+[2025-07-03 16:17:36.062] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.32394883036613464, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:17:40.493] critic_loss: 11853.73046875, agent_loss: -21.41488265991211
+[2025-07-03 16:17:43.797] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.41924285888671875, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:17:46.654] =============> episode_gone: 13, rew_n: 1037.0909442901611, rew_n_avg_queue_delta: 0.32680943608283997, rew_n_avg_satisfaction: 4.321992985723e-09, rew_n_power_penalty: 0.0
+[2025-07-03 16:17:48.312] critic_loss: 16339.8427734375, agent_loss: -22.42552947998047
+[2025-07-03 16:17:51.457] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.4762798845767975, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:17:55.792] critic_loss: 8048.9521484375, agent_loss: -23.233139038085938
+[2025-07-03 16:18:00.364] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.4678135812282562, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:18:06.078] critic_loss: 1953.31640625, agent_loss: -23.631786346435547
+[2025-07-03 16:18:10.629] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.41788026690483093, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:18:15.544] critic_loss: 11871.013671875, agent_loss: -24.43404197692871
+[2025-07-03 16:18:18.691] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.38213542103767395, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:18:23.031] critic_loss: 1847.3798828125, agent_loss: -24.518043518066406
+[2025-07-03 16:18:26.292] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.4213525056838989, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:18:30.678] critic_loss: 17979.259765625, agent_loss: -25.49859619140625
+[2025-07-03 16:18:33.984] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.4303807020187378, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:18:38.428] critic_loss: 11568.95703125, agent_loss: -26.53067398071289
+[2025-07-03 16:18:39.632] =============> episode_gone: 13, rew_n: 1054.6497421264648, rew_n_avg_queue_delta: 0.3843240737915039, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:18:41.601] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.550000786781311, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:18:45.965] critic_loss: 5649.03857421875, agent_loss: -27.210643768310547
+[2025-07-03 16:18:49.157] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.4586632549762726, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 16:18:53.382] critic_loss: 7759.982421875, agent_loss: -28.150890350341797
+[2025-07-03 16:18:56.542] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.39284053444862366, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:19:00.871] critic_loss: 4039.45849609375, agent_loss: -28.67444610595703
+[2025-07-03 16:19:04.099] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.5015994906425476, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:19:08.551] critic_loss: 9633.2431640625, agent_loss: -29.523197174072266
+[2025-07-03 16:19:11.757] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.4226069152355194, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:19:16.286] critic_loss: 5946.109375, agent_loss: -29.9857177734375
+[2025-07-03 16:19:19.647] episode_gone: 13, rew_n: 0.0, rew_n_avg_queue_delta: 0.5367880463600159, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:19:24.013] critic_loss: 6007.939453125, agent_loss: -30.480899810791016
+[2025-07-03 16:19:26.834] =============> episode_gone: 13, rew_n: 1057.0694122314453, rew_n_avg_queue_delta: 0.3612722158432007, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:19:27.351] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.7554066181182861, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:19:31.613] critic_loss: 13823.37109375, agent_loss: -31.660316467285156
+[2025-07-03 16:19:35.348] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.5828784704208374, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:19:40.281] critic_loss: 15517.76953125, agent_loss: -33.5162353515625
+[2025-07-03 16:19:43.479] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.40562769770622253, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:19:47.823] critic_loss: 11717.279296875, agent_loss: -35.129642486572266
+[2025-07-03 16:19:51.033] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.34452709555625916, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:19:55.483] critic_loss: 15724.173828125, agent_loss: -37.22661590576172
+[2025-07-03 16:19:58.782] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.4455084800720215, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:20:03.331] critic_loss: 13533.6455078125, agent_loss: -39.221893310546875
+[2025-07-03 16:20:06.476] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.3533373773097992, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:20:11.612] critic_loss: 9727.578125, agent_loss: -41.00732421875
+[2025-07-03 16:20:15.057] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.3892152011394501, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:20:16.258] =============> episode_gone: 14, rew_n: 1040.2498989105225, rew_n_avg_queue_delta: 0.40685227513313293, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:20:19.463] critic_loss: 11457.154296875, agent_loss: -42.27582931518555
+[2025-07-03 16:20:22.640] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.4430384635925293, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:20:27.001] critic_loss: 9869.724609375, agent_loss: -43.211578369140625
+[2025-07-03 16:20:30.186] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.2995564043521881, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:20:34.643] critic_loss: 13275.9775390625, agent_loss: -44.5383186340332
+[2025-07-03 16:20:38.050] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.42224740982055664, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:20:42.628] critic_loss: 13654.9794921875, agent_loss: -45.54113006591797
+[2025-07-03 16:20:45.767] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.39321592450141907, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:20:50.148] critic_loss: 6002.1884765625, agent_loss: -45.74476623535156
+[2025-07-03 16:20:53.303] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.35601094365119934, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:20:57.613] critic_loss: 19140.244140625, agent_loss: -48.08572769165039
+[2025-07-03 16:21:01.111] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.42897725105285645, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:21:03.966] =============> episode_gone: 14, rew_n: 1077.7643775939941, rew_n_avg_queue_delta: 0.37337788939476013, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:21:05.590] critic_loss: 7726.7822265625, agent_loss: -48.31269836425781
+[2025-07-03 16:21:08.765] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.4902505874633789, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:21:13.166] critic_loss: 11461.1162109375, agent_loss: -50.59687805175781
+[2025-07-03 16:21:16.388] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.5253380537033081, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:21:20.975] critic_loss: 5608.482421875, agent_loss: -50.6291618347168
+[2025-07-03 16:21:24.235] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.3268580734729767, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:21:28.605] critic_loss: 9379.939453125, agent_loss: -51.753807067871094
+[2025-07-03 16:21:31.767] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.4109574854373932, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 16:21:36.107] critic_loss: 3632.26513671875, agent_loss: -51.66372299194336
+[2025-07-03 16:21:39.394] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.43540072441101074, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:21:44.951] critic_loss: 7474.84375, agent_loss: -52.004783630371094
+[2025-07-03 16:21:48.184] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.4185850918292999, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:21:53.082] critic_loss: 5615.4990234375, agent_loss: -52.32536697387695
+[2025-07-03 16:21:54.658] =============> episode_gone: 14, rew_n: 1065.2842178344727, rew_n_avg_queue_delta: 0.4566304385662079, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:21:57.306] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.5122681260108948, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:22:02.177] critic_loss: 9111.46484375, agent_loss: -53.45664978027344
+[2025-07-03 16:22:06.656] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.4916940927505493, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:22:11.582] critic_loss: 13028.4853515625, agent_loss: -55.70337677001953
+[2025-07-03 16:22:14.888] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.44759902358055115, rew_n_avg_satisfaction: 7.426415482569837e-09, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:22:19.229] critic_loss: 14862.89453125, agent_loss: -59.497215270996094
+[2025-07-03 16:22:22.436] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.4555695950984955, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:22:26.707] critic_loss: 18625.80078125, agent_loss: -64.07799530029297
+[2025-07-03 16:22:29.947] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.4230118989944458, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:22:34.369] critic_loss: 7412.68896484375, agent_loss: -66.51094055175781
+[2025-07-03 16:22:37.623] episode_gone: 14, rew_n: 0.0, rew_n_avg_queue_delta: 0.5028464198112488, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:22:41.985] critic_loss: 5423.4423828125, agent_loss: -67.27601623535156
+[2025-07-03 16:22:44.907] =============> episode_gone: 14, rew_n: 1090.9355506896973, rew_n_avg_queue_delta: 0.4294271171092987, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:22:45.385] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.8512915968894958, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:22:49.789] critic_loss: 5855.068359375, agent_loss: -67.24534606933594
+[2025-07-03 16:22:53.022] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.49276432394981384, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:23:02.134] critic_loss: 10838.27734375, agent_loss: -67.37797546386719
+[2025-07-03 16:23:05.600] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.46194174885749817, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:23:09.880] critic_loss: 7247.181640625, agent_loss: -66.02029418945312
+[2025-07-03 16:23:13.079] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.3860052824020386, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:23:18.026] critic_loss: 10644.0791015625, agent_loss: -66.5928955078125
+[2025-07-03 16:23:21.248] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.3890429437160492, rew_n_avg_satisfaction: 2.2352857342866628e-08, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:23:25.733] critic_loss: 9455.9169921875, agent_loss: -66.63694763183594
+[2025-07-03 16:23:29.212] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.39764317870140076, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:23:34.509] critic_loss: 5403.73486328125, agent_loss: -67.3137435913086
+[2025-07-03 16:23:37.769] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.4204748570919037, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 16:23:38.941] =============> episode_gone: 15, rew_n: 1074.6381340026855, rew_n_avg_queue_delta: 0.37906160950660706, rew_n_avg_satisfaction: 4.321992985723e-09, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:23:42.630] critic_loss: 10738.8603515625, agent_loss: -69.64888000488281
+[2025-07-03 16:23:45.866] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.4864073693752289, rew_n_avg_satisfaction: 1.0316289156264702e-08, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:23:50.232] critic_loss: 3624.739990234375, agent_loss: -70.31232452392578
+[2025-07-03 16:23:54.520] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.4356406629085541, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:24:00.388] critic_loss: 14103.078125, agent_loss: -74.69786071777344
+[2025-07-03 16:24:03.692] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.481846421957016, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:24:08.131] critic_loss: 3626.40673828125, agent_loss: -75.42787170410156
+[2025-07-03 16:24:11.352] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.36720192432403564, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:24:15.878] critic_loss: 21012.94140625, agent_loss: -80.80032348632812
+[2025-07-03 16:24:19.577] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.35248032212257385, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:24:24.935] critic_loss: 10333.9931640625, agent_loss: -82.02406311035156
+[2025-07-03 16:24:28.604] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.48863181471824646, rew_n_avg_satisfaction: 1.9292789588121195e-08, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:24:32.449] =============> episode_gone: 15, rew_n: 1087.4232425689697, rew_n_avg_queue_delta: 0.3870542049407959, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:24:34.582] critic_loss: 10401.71875, agent_loss: -84.99323272705078
+[2025-07-03 16:24:37.791] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.42458537220954895, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:24:42.080] critic_loss: 7128.8037109375, agent_loss: -85.02424621582031
+[2025-07-03 16:24:45.536] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.45132502913475037, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:24:50.182] critic_loss: 19161.59765625, agent_loss: -87.54483795166016
+[2025-07-03 16:24:53.802] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.43870970606803894, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:25:00.060] critic_loss: 5152.29150390625, agent_loss: -86.7994155883789
+[2025-07-03 16:25:03.401] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.41932976245880127, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:25:07.907] critic_loss: 3517.11181640625, agent_loss: -84.40009307861328
+[2025-07-03 16:25:11.136] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.4229499101638794, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:25:15.566] critic_loss: 13270.5859375, agent_loss: -86.66268920898438
+[2025-07-03 16:25:18.744] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.45048680901527405, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:25:23.258] critic_loss: 6547.51416015625, agent_loss: -86.63981628417969
+[2025-07-03 16:25:24.806] =============> episode_gone: 15, rew_n: 1088.755633354187, rew_n_avg_queue_delta: 0.37912020087242126, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:25:27.654] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.5631957054138184, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:25:32.954] critic_loss: 10104.4658203125, agent_loss: -89.45651245117188
+[2025-07-03 16:25:36.124] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.5218583941459656, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:25:40.424] critic_loss: 14446.2216796875, agent_loss: -93.09947967529297
+[2025-07-03 16:25:43.659] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.3785611093044281, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:25:48.003] critic_loss: 8041.0224609375, agent_loss: -97.21501159667969
+[2025-07-03 16:25:51.198] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.46883371472358704, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:25:55.497] critic_loss: 11179.2724609375, agent_loss: -101.13468933105469
+[2025-07-03 16:25:58.693] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.4046931266784668, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:26:03.080] critic_loss: 7989.12060546875, agent_loss: -102.09642028808594
+[2025-07-03 16:26:06.421] episode_gone: 15, rew_n: 0.0, rew_n_avg_queue_delta: 0.4664555788040161, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:26:12.214] critic_loss: 11517.673828125, agent_loss: -103.887451171875
+[2025-07-03 16:26:15.753] =============> episode_gone: 15, rew_n: 1096.7757110595703, rew_n_avg_queue_delta: 0.4025558531284332, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:26:16.259] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.8328702449798584, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:26:20.619] critic_loss: 7638.1416015625, agent_loss: -102.281494140625
+[2025-07-03 16:26:23.808] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4835433065891266, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:26:28.229] critic_loss: 7695.474609375, agent_loss: -101.53416442871094
+[2025-07-03 16:26:31.511] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.42986950278282166, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:26:36.919] critic_loss: 9515.6240234375, agent_loss: -101.8028335571289
+[2025-07-03 16:26:40.115] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.3622457981109619, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:26:44.513] critic_loss: 13546.9677734375, agent_loss: -106.41600036621094
+[2025-07-03 16:26:47.744] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4057447016239166, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:26:52.193] critic_loss: 131.912109375, agent_loss: -103.37710571289062
+[2025-07-03 16:26:56.121] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.408570796251297, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:27:01.649] critic_loss: 10686.56640625, agent_loss: -107.701171875
+[2025-07-03 16:27:04.894] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.3887595236301422, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:27:06.083] =============> episode_gone: 16, rew_n: 1080.3766708374023, rew_n_avg_queue_delta: 0.41825738549232483, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:27:09.230] critic_loss: 9283.236328125, agent_loss: -110.8738021850586
+[2025-07-03 16:27:12.444] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.42861413955688477, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:27:16.789] critic_loss: 12028.505859375, agent_loss: -115.32152557373047
+[2025-07-03 16:27:19.947] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4698108434677124, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:27:24.339] critic_loss: 7904.78662109375, agent_loss: -116.99774169921875
+[2025-07-03 16:27:27.577] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4008920192718506, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:27:32.002] critic_loss: 11407.8369140625, agent_loss: -120.13461303710938
+[2025-07-03 16:27:35.308] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.40576329827308655, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:27:39.781] critic_loss: 3196.100830078125, agent_loss: -118.07080078125
+[2025-07-03 16:27:43.019] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4555761516094208, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:27:47.410] critic_loss: 4445.7587890625, agent_loss: -116.98915100097656
+[2025-07-03 16:27:50.672] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.47523024678230286, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 16:27:53.370] =============> episode_gone: 16, rew_n: 1104.7550258636475, rew_n_avg_queue_delta: 0.3933661878108978, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:27:55.007] critic_loss: 8675.12109375, agent_loss: -116.95736694335938
+[2025-07-03 16:27:58.179] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4953736364841461, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:28:02.491] critic_loss: 7073.765625, agent_loss: -118.01457214355469
+[2025-07-03 16:28:05.713] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4866631329059601, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:28:10.150] critic_loss: 5748.6337890625, agent_loss: -119.13959503173828
+[2025-07-03 16:28:13.338] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.38485047221183777, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:28:17.948] critic_loss: 12255.76171875, agent_loss: -126.3792495727539
+[2025-07-03 16:28:21.335] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.403865247964859, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:28:26.049] critic_loss: 8010.9150390625, agent_loss: -130.23944091796875
+[2025-07-03 16:28:29.728] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4686965048313141, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:28:35.601] critic_loss: 8245.693359375, agent_loss: -133.5612335205078
+[2025-07-03 16:28:38.832] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.47754883766174316, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:28:43.292] critic_loss: 9510.91015625, agent_loss: -135.10165405273438
+[2025-07-03 16:28:44.793] =============> episode_gone: 16, rew_n: 1117.4049758911133, rew_n_avg_queue_delta: 0.4335809648036957, rew_n_avg_satisfaction: 7.458117678993403e-09, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:28:47.348] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.5460120439529419, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:28:51.748] critic_loss: 3018.310546875, agent_loss: -129.6979522705078
+[2025-07-03 16:28:55.035] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4559619128704071, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:28:59.478] critic_loss: 3994.300537109375, agent_loss: -126.6121826171875
+[2025-07-03 16:29:02.715] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.30030179023742676, rew_n_avg_satisfaction: 7.426415482569837e-09, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:29:07.163] critic_loss: 6948.7666015625, agent_loss: -128.77743530273438
+[2025-07-03 16:29:10.540] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4602532684803009, rew_n_avg_satisfaction: 2.2352857342866628e-08, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:29:14.885] critic_loss: 6434.529296875, agent_loss: -128.8988037109375
+[2025-07-03 16:29:18.107] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4331061542034149, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:29:22.499] critic_loss: 6581.31982421875, agent_loss: -132.33432006835938
+[2025-07-03 16:29:25.753] episode_gone: 16, rew_n: 0.0, rew_n_avg_queue_delta: 0.4579983949661255, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:29:30.125] critic_loss: 5226.9130859375, agent_loss: -137.84027099609375
+[2025-07-03 16:29:32.899] =============> episode_gone: 16, rew_n: 1050.5431098937988, rew_n_avg_queue_delta: 0.35256126523017883, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:29:33.425] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.7818818688392639, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:29:37.754] critic_loss: 8961.64453125, agent_loss: -143.33804321289062
+[2025-07-03 16:29:40.961] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.5365527868270874, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:29:45.422] critic_loss: 7315.10546875, agent_loss: -147.20782470703125
+[2025-07-03 16:29:49.590] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.4305518567562103, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:29:55.616] critic_loss: 4116.27294921875, agent_loss: -141.95126342773438
+[2025-07-03 16:29:58.862] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.3950074017047882, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:30:03.302] critic_loss: 7040.5078125, agent_loss: -143.20858764648438
+[2025-07-03 16:30:06.509] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.417590469121933, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:30:10.896] critic_loss: 7409.306640625, agent_loss: -142.60708618164062
+[2025-07-03 16:30:14.172] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.3806684911251068, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:30:18.541] critic_loss: 4641.86083984375, agent_loss: -140.2618408203125
+[2025-07-03 16:30:21.950] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.42491626739501953, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:30:23.093] =============> episode_gone: 17, rew_n: 1079.0704555511475, rew_n_avg_queue_delta: 0.4413677752017975, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:30:26.976] critic_loss: 4707.751953125, agent_loss: -141.95407104492188
+[2025-07-03 16:30:30.124] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.4916934072971344, rew_n_avg_satisfaction: 1.4747250531854661e-08, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:30:34.537] critic_loss: 7061.54296875, agent_loss: -147.60897827148438
+[2025-07-03 16:30:37.893] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.32537269592285156, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:30:42.385] critic_loss: 2502.73583984375, agent_loss: -145.969970703125
+[2025-07-03 16:30:45.557] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.4284707009792328, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:30:49.846] critic_loss: 6508.3173828125, agent_loss: -148.76327514648438
+[2025-07-03 16:30:53.082] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.39294326305389404, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:30:57.390] critic_loss: 3147.837158203125, agent_loss: -147.5137939453125
+[2025-07-03 16:31:00.668] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.3320343792438507, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:31:04.986] critic_loss: 2540.398193359375, agent_loss: -145.36331176757812
+[2025-07-03 16:31:08.490] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.44599077105522156, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:31:11.763] =============> episode_gone: 17, rew_n: 1085.4639205932617, rew_n_avg_queue_delta: 0.4029516279697418, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:31:13.408] critic_loss: 6563.34375, agent_loss: -149.15835571289062
+[2025-07-03 16:31:16.389] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.4391361176967621, rew_n_avg_satisfaction: 1.4199794229341478e-08, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:31:20.645] critic_loss: 4502.29296875, agent_loss: -147.1863250732422
+[2025-07-03 16:31:23.812] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.5156840085983276, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:31:28.213] critic_loss: 8289.0380859375, agent_loss: -156.17681884765625
+[2025-07-03 16:31:31.361] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.39473798871040344, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:31:35.556] critic_loss: 5406.2490234375, agent_loss: -159.4912567138672
+[2025-07-03 16:31:38.616] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.4038945436477661, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:31:44.130] critic_loss: 6504.3857421875, agent_loss: -160.7882537841797
+[2025-07-03 16:31:47.413] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.4503730833530426, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:31:52.713] critic_loss: 3378.167236328125, agent_loss: -158.56265258789062
+[2025-07-03 16:31:56.061] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.41556087136268616, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:32:00.535] critic_loss: 5806.5947265625, agent_loss: -158.00338745117188
+[2025-07-03 16:32:01.753] =============> episode_gone: 17, rew_n: 1098.0541820526123, rew_n_avg_queue_delta: 0.4643942415714264, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:32:09.264] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.5321853756904602, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:32:13.633] critic_loss: 2896.6005859375, agent_loss: -153.77951049804688
+[2025-07-03 16:32:17.056] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.5094877481460571, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:32:21.415] critic_loss: 2922.6123046875, agent_loss: -155.8775634765625
+[2025-07-03 16:32:24.665] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.3932829201221466, rew_n_avg_satisfaction: 7.426415482569837e-09, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:32:30.309] critic_loss: 2847.162109375, agent_loss: -154.17843627929688
+[2025-07-03 16:32:33.579] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.4825071394443512, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:32:37.843] critic_loss: 5589.22998046875, agent_loss: -159.16168212890625
+[2025-07-03 16:32:41.068] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.45454180240631104, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:32:45.541] critic_loss: 5819.810546875, agent_loss: -170.02584838867188
+[2025-07-03 16:32:48.816] episode_gone: 17, rew_n: 0.0, rew_n_avg_queue_delta: 0.5262562036514282, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:32:53.296] critic_loss: 2775.494140625, agent_loss: -166.0914306640625
+[2025-07-03 16:32:56.201] =============> episode_gone: 17, rew_n: 1090.4549560546875, rew_n_avg_queue_delta: 0.4105333983898163, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:32:56.681] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.8407602906227112, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010017815344e-08
+[2025-07-03 16:33:01.247] critic_loss: 5162.796875, agent_loss: -168.3053741455078
+[2025-07-03 16:33:04.732] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.536078929901123, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:33:09.171] critic_loss: 6039.34033203125, agent_loss: -167.99072265625
+[2025-07-03 16:33:13.301] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.4008753001689911, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:33:18.143] critic_loss: 2105.05859375, agent_loss: -159.03744506835938
+[2025-07-03 16:33:21.421] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.3584987223148346, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:33:25.744] critic_loss: 5093.39794921875, agent_loss: -167.77304077148438
+[2025-07-03 16:33:28.870] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.46321067214012146, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:33:33.298] critic_loss: 6457.552734375, agent_loss: -175.455810546875
+[2025-07-03 16:33:36.720] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.3858303129673004, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:33:41.216] critic_loss: 1977.72412109375, agent_loss: -170.81939697265625
+[2025-07-03 16:33:44.427] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.4250502586364746, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:33:45.557] =============> episode_gone: 18, rew_n: 1096.6598300933838, rew_n_avg_queue_delta: 0.38848599791526794, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:33:48.902] critic_loss: 6561.3740234375, agent_loss: -181.435546875
+[2025-07-03 16:33:52.999] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.47273099422454834, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.4759115525039306e-08
+[2025-07-03 16:33:58.355] critic_loss: 3923.10498046875, agent_loss: -178.21237182617188
+[2025-07-03 16:34:02.104] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.3643101453781128, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:34:06.968] critic_loss: 3642.7431640625, agent_loss: -175.00698852539062
+[2025-07-03 16:34:10.121] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.4216139018535614, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:34:15.374] critic_loss: 1595.6455078125, agent_loss: -168.98699951171875
+[2025-07-03 16:34:20.006] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.3327287435531616, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:34:25.880] critic_loss: 2381.55712890625, agent_loss: -169.8089141845703
+[2025-07-03 16:34:30.302] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.4023233950138092, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:34:36.380] critic_loss: 1888.187255859375, agent_loss: -169.32618713378906
+[2025-07-03 16:34:41.214] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.46480631828308105, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:34:45.184] =============> episode_gone: 18, rew_n: 1071.776762008667, rew_n_avg_queue_delta: 0.4255419075489044, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:34:47.498] critic_loss: 5011.421875, agent_loss: -184.95166015625
+[2025-07-03 16:34:52.036] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.45016130805015564, rew_n_avg_satisfaction: 1.3692864619940792e-08, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:34:58.225] critic_loss: 9272.1259765625, agent_loss: -200.82630920410156
+[2025-07-03 16:35:01.796] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.4757043421268463, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:35:06.141] critic_loss: 5043.556640625, agent_loss: -200.3394012451172
+[2025-07-03 16:35:09.341] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.3800950050354004, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:35:13.707] critic_loss: 3899.9404296875, agent_loss: -186.6875
+[2025-07-03 16:35:16.889] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.4245668649673462, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:35:22.170] critic_loss: 5745.541015625, agent_loss: -186.45065307617188
+[2025-07-03 16:35:27.074] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.4368203580379486, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:35:33.387] critic_loss: 2117.164794921875, agent_loss: -172.73487854003906
+[2025-07-03 16:35:37.879] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.49365201592445374, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:35:42.778] critic_loss: 3039.66015625, agent_loss: -177.76605224609375
+[2025-07-03 16:35:44.054] =============> episode_gone: 18, rew_n: 1096.236307144165, rew_n_avg_queue_delta: 0.4694833755493164, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:35:46.036] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.535876989364624, rew_n_avg_satisfaction: 8.423430841730806e-09, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:35:50.362] critic_loss: 7300.0126953125, agent_loss: -199.23394775390625
+[2025-07-03 16:35:53.584] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.5305090546607971, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:35:58.015] critic_loss: 6916.37451171875, agent_loss: -210.33184814453125
+[2025-07-03 16:36:01.256] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.3401131331920624, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:36:05.712] critic_loss: 3651.937255859375, agent_loss: -197.47952270507812
+[2025-07-03 16:36:09.763] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.5006491541862488, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:36:15.742] critic_loss: 2499.006591796875, agent_loss: -188.00180053710938
+[2025-07-03 16:36:19.726] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.4359801709651947, rew_n_avg_satisfaction: 3.827936367883922e-08, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:36:24.103] critic_loss: 4714.96630859375, agent_loss: -185.77197265625
+[2025-07-03 16:36:27.310] episode_gone: 18, rew_n: 0.0, rew_n_avg_queue_delta: 0.5009399056434631, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:36:31.716] critic_loss: 2452.652587890625, agent_loss: -178.429443359375
+[2025-07-03 16:36:34.976] =============> episode_gone: 18, rew_n: 1120.7828350067139, rew_n_avg_queue_delta: 0.45696842670440674, rew_n_avg_satisfaction: 7.458117678993403e-09, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:36:35.469] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.8067848682403564, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:36:39.820] critic_loss: 2825.1279296875, agent_loss: -182.36949157714844
+[2025-07-03 16:36:42.989] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.5592911243438721, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:36:47.374] critic_loss: 3744.258056640625, agent_loss: -195.30181884765625
+[2025-07-03 16:36:51.661] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.48438775539398193, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:36:56.127] critic_loss: 1072.09228515625, agent_loss: -191.1737060546875
+[2025-07-03 16:36:59.699] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.4542973041534424, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:37:04.229] critic_loss: 2629.03564453125, agent_loss: -196.3618621826172
+[2025-07-03 16:37:07.456] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.4575939476490021, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:37:12.139] critic_loss: 2004.6663818359375, agent_loss: -195.0097198486328
+[2025-07-03 16:37:15.674] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.40914568305015564, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:37:20.333] critic_loss: 1804.4854736328125, agent_loss: -183.20306396484375
+[2025-07-03 16:37:23.663] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.46538007259368896, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:37:24.842] =============> episode_gone: 19, rew_n: 1132.2226390838623, rew_n_avg_queue_delta: 0.4761491119861603, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 4.069010461904554e-09
+[2025-07-03 16:37:28.112] critic_loss: 1460.448486328125, agent_loss: -183.68125915527344
+[2025-07-03 16:37:31.369] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.460769921541214, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:37:35.929] critic_loss: 2734.956787109375, agent_loss: -189.5968475341797
+[2025-07-03 16:37:39.182] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.4250437319278717, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:37:43.696] critic_loss: 2080.35693359375, agent_loss: -197.15586853027344
+[2025-07-03 16:37:47.083] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.41681599617004395, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:37:51.606] critic_loss: 5138.298828125, agent_loss: -219.60260009765625
+[2025-07-03 16:37:54.850] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.3593432903289795, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.662109193669494e-08
+[2025-07-03 16:37:59.358] critic_loss: 1561.55322265625, agent_loss: -202.6031951904297
+[2025-07-03 16:38:02.598] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.34053388237953186, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:38:07.009] critic_loss: 3798.13232421875, agent_loss: -205.29876708984375
+[2025-07-03 16:38:10.339] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.42946115136146545, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:38:13.083] =============> episode_gone: 19, rew_n: 1056.4362030029297, rew_n_avg_queue_delta: 0.4523265063762665, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:38:14.800] critic_loss: 1773.92041015625, agent_loss: -190.93084716796875
+[2025-07-03 16:38:17.988] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.46372851729393005, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 3.2552083695236433e-08
+[2025-07-03 16:38:22.443] critic_loss: 1849.952880859375, agent_loss: -192.7127685546875
+[2025-07-03 16:38:25.714] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.5013089776039124, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08
+[2025-07-03 16:38:30.144] critic_loss: 2474.2763671875, agent_loss: -198.18630981445312
+[2025-07-03 16:38:33.420] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.3626347482204437, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:38:38.062] critic_loss: 2150.9189453125, agent_loss: -200.21517944335938
+[2025-07-03 16:38:41.345] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.44739070534706116, rew_n_avg_satisfaction: 1.0316289156264702e-08, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:38:45.827] critic_loss: 2320.910400390625, agent_loss: -201.9449920654297
+[2025-07-03 16:38:49.053] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.4841456413269043, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 8.138020923809108e-09
+[2025-07-03 16:38:53.357] critic_loss: 3064.84814453125, agent_loss: -212.88719177246094
+[2025-07-03 16:38:56.651] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.412993460893631, rew_n_avg_satisfaction: 3.6623093446763733e-09, rew_n_power_penalty: 1.2207030941624453e-08
+[2025-07-03 16:39:01.546] critic_loss: 3031.650390625, agent_loss: -225.45004272460938
+[2025-07-03 16:39:03.206] =============> episode_gone: 19, rew_n: 1097.516185760498, rew_n_avg_queue_delta: 0.48175880312919617, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:39:05.878] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.5315179824829102, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:39:11.599] critic_loss: 1592.91650390625, agent_loss: -200.88113403320312
+[2025-07-03 16:39:14.822] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.5246824026107788, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:39:19.266] critic_loss: 1674.923828125, agent_loss: -201.50308227539062
+[2025-07-03 16:39:23.067] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.32465696334838867, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:39:29.401] critic_loss: 2239.77783203125, agent_loss: -204.498046875
+[2025-07-03 16:39:33.662] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.40517911314964294, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.848307190106425e-08
+[2025-07-03 16:39:38.107] critic_loss: 2889.946044921875, agent_loss: -219.5091552734375
+[2025-07-03 16:39:41.902] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.46040013432502747, rew_n_avg_satisfaction: 1.5108678752540072e-08, rew_n_power_penalty: 1.6276041847618217e-08
+[2025-07-03 16:39:47.427] critic_loss: 2014.4207763671875, agent_loss: -216.14871215820312
+[2025-07-03 16:39:51.729] episode_gone: 19, rew_n: 0.0, rew_n_avg_queue_delta: 0.5010989308357239, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.034505008907672e-08
+[2025-07-03 16:39:57.054] critic_loss: 1339.22216796875, agent_loss: -211.21510314941406
+[2025-07-03 16:39:59.908] =============> episode_gone: 19, rew_n: 1097.0834140777588, rew_n_avg_queue_delta: 0.430489182472229, rew_n_avg_satisfaction: 0.0, rew_n_power_penalty: 2.4414061883248905e-08

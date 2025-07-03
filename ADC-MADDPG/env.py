@@ -83,7 +83,7 @@ class SatelliteEnv:
 
         # === Compute delta (avoid divide by zero) ===
         eps = 1e-8
-        queue_delta = queue_state_mid - queue_state_after
+        queue_delta = (queue_state_mid - queue_state_after) / (queue_state_mid + eps)
 
         reward, avg_queue_delta, avg_satisfaction, power_penalty = compute_reward(
             embb_rate=embb_rate,
@@ -113,7 +113,7 @@ class SatelliteEnv:
                 # 如果最大值等于最小值，直接返回全 0 张量
                 return torch.zeros_like(t)
             return (t - t.min()) / denom
-        
+
         def normalize_tensor(t, dims, norm_type='minmax', eps=1e-8):
             """
             对张量 t 的指定维度 dims 进行归一化。

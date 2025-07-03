@@ -573,7 +573,7 @@ def agents_train_mix(arglist, game_step, update_cnt, memory_t, memory_j, obs_siz
     return update_cnt, actors_cur, actors_tar, critics_cur, critics_tar
 
 def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_size, action_size, \
-                     actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, env, type, random=True):
+                     actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, env, rew_n, type, random=True):
     """
     use this func to make the "main" func clean
     par:
@@ -611,7 +611,7 @@ def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_
 
             q = critic_c(obs_n_o, action_cur_o).reshape(-1)  # q
             q_ = critic_t(obs_n_n, action_tar).reshape(-1)  # q_
-            tar_value = q_ * arglist.gamma * done_n + rew  # q_*gamma*done + reward
+            tar_value = q_ * arglist.gamma + rew  # q_*gamma*done + reward
             loss_c = torch.nn.MSELoss()(q, tar_value)  # bellman equation
             opt_c.zero_grad()
             loss_c.backward()
@@ -634,6 +634,7 @@ def agents_train_mix_ax(arglist, game_step, update_cnt, memory_t, memory_j, obs_
 
             writer.add_scalar('critic_loss', loss_c.item(), game_step)
             writer.add_scalar('agent_loss', loss_a.item(), game_step)
+            # writer.add_scalar('total_reward', sum(rew_n), game_step)
             print_with_timestamp(f"critic_loss: {loss_c}, agent_loss: {loss_a}")
 
             # # --use the date to update the CRITIC of typical UAVs
@@ -1190,11 +1191,11 @@ def train_mix_ax(arglist, type):
             # new_obs_n, rew_n, done_n = env.step(action_n=action_n)
             new_obs_n, rew_n, rew_n_avg_queue_delta, rew_n_avg_satisfaction, rew_n_power_penalty, done_n = env.step(action_n=action_n)
 
-            # if game_step % arglist.learning_fre == 0:
-                # print_with_timestamp(f"episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
+            if game_step % arglist.learning_fre == 0:
+                print_with_timestamp(f"episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
 
             if (all(done_n)):
-                print_with_timestamp(f"episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
+                print_with_timestamp(f"=============> episode_gone: {episode_gone}, rew_n: {sum(rew_n)}, rew_n_avg_queue_delta: {rew_n_avg_queue_delta}, rew_n_avg_satisfaction: {rew_n_avg_satisfaction}, rew_n_power_penalty: {rew_n_power_penalty}")
                 writer.add_scalar('total_reward', sum(rew_n), game_step)
                 # writer.add_scalar('urllc--rew_n--avg_queue_delta', rew_n_avg_queue_delta, game_step)
                 # writer.add_scalar('embb--rew_n--avg_satisfaction', rew_n_avg_satisfaction, game_step)
@@ -1211,7 +1212,7 @@ def train_mix_ax(arglist, type):
             # train our agents
             update_cnt, actors_cur, actors_tar, critics_cur, critics_tar = agents_train_mix_ax( \
                 arglist, game_step, update_cnt, memory_t, memory_j, obs_size, action_size, \
-                actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, env, type=type)
+                actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c, writer, env, rew_n, type=type)
 
             # update the obs_n
             game_step += 1
