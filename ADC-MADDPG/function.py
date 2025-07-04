@@ -188,10 +188,10 @@ def get_trainers_mix_ax(n, obs_shape_n, action_shape_n, arglist):
     critics_tar_obj = openai_critic(sum(obs_shape_n[0:AGENT_NUM]), sum(action_shape_n[0:AGENT_NUM]), arglist).to(arglist.device)
     critics_tar = [critics_tar_obj for _ in range(n)]
     
-    optimizers_c_obj = optim.Adam(critics_cur[0].parameters(), arglist.lr_c)
+    optimizers_c_obj = optim.Adam(critics_cur[0].parameters(), arglist.lr_c, weight_decay=1e-4)
     optimizers_c = [optimizers_c_obj for _ in range(n)]
-    
-    optimizers_a_obf = optim.Adam(actors_cur[0].parameters(), arglist.lr_a)
+
+    optimizers_a_obf = optim.Adam(actors_cur[0].parameters(), arglist.lr_a, weight_decay=1e-4)
     optimizers_a = [optimizers_a_obf for _ in range(n)]
 
     actors_tar = update_trainers(actors_cur, actors_tar, 1.0)  # update the target par using the cur

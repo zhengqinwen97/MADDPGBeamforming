@@ -22,7 +22,7 @@ def compute_reward(
     agent_satisfaction = torch.mean(satisfaction[valid_mask==True])
 
     # --- Per-agent URLLC queue delta ---
-    urllc_queues_delta = torch.nan_to_num(urllc_queues_delta, nan=0.0)
+    urllc_queues_delta = torch.nan_to_num(urllc_queues_delta, nan=0.0) * 1e-2
 
     # --- Per-agent power penalty ---
     power_used = torch.sum(urllc_actions, dim=1)
