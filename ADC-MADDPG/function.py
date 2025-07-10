@@ -10,6 +10,7 @@ from torch.utils.tensorboard import SummaryWriter
 from replay_buffer import ReplayBuffer
 from environment import *
 from model import openai_actor, openai_critic
+import time
 
 global double_q_delay_fre, double_q_delay_cnt
 double_q_delay_fre = 2
@@ -27,8 +28,8 @@ def get_trainers_mix_ax(num_actors, node_feat_dim, edge_feat_dim, num_nodes, act
     actors_tar = [openai_actor(node_feat_dim, edge_feat_dim, num_nodes, action_dim, arglist).to(arglist.device) for _ in range(num_actors)]
     critics_tar = [openai_critic(node_feat_dim, edge_feat_dim, num_actors, num_nodes, action_dim, arglist).to(arglist.device) for _ in range(num_actors)]
 
-    optimizers_a = [optim.Adam(actor.parameters(), arglist.lr_a) for actor in actors_cur]
-    optimizers_c = [optim.Adam(critic.parameters(), arglist.lr_c) for critic in critics_cur]
+    optimizers_a = [optim.Adam(actor.parameters(), arglist.lr_a, weight_decay=1e-4) for actor in actors_cur]
+    optimizers_c = [optim.Adam(critic.parameters(), arglist.lr_c, weight_decay=1e-4) for critic in critics_cur]
 
     actors_tar = update_trainers(actors_cur, actors_tar, 1.0)  # update the target par using the cur
     critics_tar = update_trainers(critics_cur, critics_tar, 1.0)  # update the target par using the cur
