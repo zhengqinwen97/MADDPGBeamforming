@@ -6,39 +6,30 @@ import os
 
 
 # === Reward Function ===
-def compute_reward(
-    embb_rate, embb_demand, urllc_queues_delta, urllc_actions,
-    total_power, cell_sat_pairing_embb, t,
-    alpha=1e-7, beta=1000
-):
-    # --- Compute per-agent eMBB satisfaction rate ---
-    valid_mask = cell_sat_pairing_embb[:, :, t] == 1
-    valid_mask = valid_mask.transpose(0, 1)  # Transpose [cell, sat] -> [sat, cell]
+def compute_reward(embb_rate, embb_demand, urllc_queues_delta, cell_sat_pairing_embb, cell_sat_pairing_urllc, t):
+    K, N, T = cell_sat_pairing_embb.size()
 
-    # Avoid division by zero
-    satisfaction = embb_rate * valid_mask.float() / (embb_demand + 1e-8)
-    # agent_satisfaction = torch.sum(satisfaction)
-    satisfaction = torch.clamp(satisfaction, min=0.0, max=1.0)
-    agent_satisfaction = torch.mean(satisfaction[valid_mask==True])
+    embb_satisfaction = []
+    for n in range(N):
+        embb_cell_to_serve_idx = torch.nonzero(cell_sat_pairing_embb[:, n, t], as_tuple=False).flatten()
+        embb_cell_to_serve_satisfaction = embb_rate[n, :len(embb_cell_to_serve_idx)] / (embb_demand[0, embb_cell_to_serve_idx] + 1e-8)
+        embb_cell_to_serve_satisfaction = torch.clamp(embb_cell_to_serve_satisfaction, min=0.0, max=1.0)
+        embb_satisfaction.append(embb_cell_to_serve_satisfaction)
+    embb_satisfaction = torch.cat(embb_satisfaction)
+    log_embb_satisfaction = torch.log(embb_satisfaction + 1e-8)
+    log_avg_embb_satisfaction = torch.mean(log_embb_satisfaction)
 
-    # --- Per-agent URLLC queue delta ---
-    urllc_queues_delta = torch.nan_to_num(urllc_queues_delta, nan=0.0) * 1e-2
+    urllc_service_rate = []
+    for n in range(N):
+        urllc_cell_to_serve_idx = torch.nonzero(cell_sat_pairing_urllc[:, n, t], as_tuple=False).flatten()
+        urllc_cell_to_serve_satisfaction = torch.clamp(urllc_queues_delta[urllc_cell_to_serve_idx, n], min=0.0, max=1.0)
+        urllc_service_rate.append(urllc_cell_to_serve_satisfaction)
+    urllc_service_rate = torch.cat(urllc_service_rate)
+    mean_urllc_service_rate = torch.mean(urllc_service_rate)
 
-    # --- Per-agent power penalty ---
-    power_used = torch.sum(urllc_actions, dim=1)
-    overuse = torch.clamp(power_used - total_power, min=0.0)
-    underuse = torch.clamp(-power_used, min=0.0)
-    agent_power_penalty = (overuse + underuse) / (total_power + 1e-8)
+    reward = mean_urllc_service_rate + log_avg_embb_satisfaction
 
-    # --- Final reward per agent ---
-    reward = urllc_queues_delta
-
-    # --- Log stats ---
-    avg_queue_delta = torch.mean(urllc_queues_delta)
-    avg_satisfaction = agent_satisfaction  # Already scalar
-    power_penalty = torch.mean(agent_power_penalty)
-
-    return reward, avg_queue_delta, avg_satisfaction, power_penalty
+    return reward, mean_urllc_service_rate, log_avg_embb_satisfaction
 
 
 # === MATLAB Dataset Parser ===
@@ -71,10 +62,10 @@ class ParseData:
 
         # --- Extract scalar system parameters ---
         system_config = {
-            "beam_count": int(mat["BeamCount"][0, 0].item()),
-            "total_power": 10 ** (float(5+mat["TotalPower"][0, 0].item()) / 10),
+            # "beam_count": int(mat["BeamCount"][0, 0].item()),
+            "total_power": 10 ** (float(mat["TotalPower"][0, 0].item()) / 10),
             "bandwidth": float(mat["Bandwidth"][0, 0].item()),
-            "tx_element_gain": 10 ** (float(mat["TxElementGain"][0, 0].item()) / 10),
+            "tx_element_gain": 10 ** (float(5+mat["TxElementGain"][0, 0].item()) / 10),
             "antenna_element_count": int(mat["TxAntennaElementCount"][0, 0].item()),
             "rx_gain": 10 ** (float(mat["RxGain"][0, 0].item()) / 10),
             "time_slot_length": float(mat["TimeSlotLength"][0, 0].item()),
@@ -96,6 +87,7 @@ class ParseData:
         self.cell_sat_pairing_embb = loadmat(self.embb_cell_sat_pairing_path)["eMBBCellSatPairing"]
         self.cell_sat_pairing_urllc = loadmat(self.urllc_cell_sat_pairing_path)["URLLCCellSatPairing"]
         self.access_status = loadmat(self.access_status_path)["accessStatus"]
+        self.system_config["beam_count"] = np.max(np.sum((self.cell_sat_pairing_embb + self.cell_sat_pairing_urllc)>0,axis=0))
 
     # === Parse eMBB and URLLC demand ===
     def parse_demand(self):

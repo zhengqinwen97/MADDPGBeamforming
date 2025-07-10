@@ -1,33 +1,27 @@
-from function import *
-
+import torch
+import random
 import sys
 import os
+
+from function import *
+from arguments import parse_args
+
 
 project_root = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(project_root)
 
+def set_seed(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+    
 if __name__ == '__main__':
     arglist = parse_args()
-    if arglist.train_model == 'm':
-        print("MADDPG")
-        train_mix(arglist)
-    elif arglist.train_model == 'n':
-        print("MADDPG with no jammer")
-        train_mix_no_jammer(arglist,type="no_jammer")
-    elif arglist.train_model == 'f':
-        print("MADDPG with fixed jammer")
-        train_mix_fixed_jammer(arglist,type="fixed_jammer")
-    elif arglist.train_model == 'a':
-        print("AC-MADDPG")
-        train_mix_attention(arglist)
-    elif arglist.train_model == 'd':
-        print("DC-MADDPG")
-        train_mix_double_q(arglist)
-    elif arglist.train_model == 'adq':
-        print("ADC-MADDPG")
-        train_mix_adq(arglist)
-    elif arglist.train_model == 'ax':
-        print("AX-MADDPG")
-        train_mix_ax(arglist, type="no_jammer")
+    set_seed(42)
+    train_mix_ax(arglist, type="no_jammer")
 
 

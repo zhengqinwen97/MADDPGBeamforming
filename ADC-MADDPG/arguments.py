@@ -1,7 +1,3 @@
-# Time: 2019-11-05
-# Author: Zachary 
-# Name: MADDPG_torch
-
 import time
 import torch
 import argparse
@@ -16,27 +12,25 @@ def parse_args():
     # environment
     parser.add_argument("--start_time", type=str, default=time_now, help="the time when start the game")
     parser.add_argument("--per_episode_max_len", type=int, default=400, help="maximum episode length")
-    #parser.add_argument("--max_episode", type=int, default=18006, help="maximum episode length")
-    parser.add_argument("--max_episode", type=int, default=60, help="maximum episode length")
+    parser.add_argument("--max_episode", type=int, default=40, help="maximum episode length")
     parser.add_argument("--num-adversaries", type=int, default=1, help="number of adversaries")
     parser.add_argument("--per_obs_dim", type=int, default=15, help="dim of obs")
     parser.add_argument("--per_act_dim", type=int, default=2, help="dim of act")
     parser.add_argument("--jammer_act", action="store_true", default=False)
 
     # core training parameters
-#     parser.add_argument("--train_model", type=str, default='n', help="swhich model to be trained")
     parser.add_argument("--train_model", type=str, default='ax', help="which model to be trained")
     
     parser.add_argument("--device", default=device, help="torch device ")
-    parser.add_argument("--learning_start_step", type=int, default=5000, help="learning start steps") # 5000
-    #parser.add_argument("--max_grad_norm", type=float, default=0.5, help="max gradient norm for clip")
+    parser.add_argument("--learning_start_step", type=int, default=10, help="learning start steps")
     parser.add_argument("--learning_fre", type=int, default=16, help="learning frequency")
     parser.add_argument("--tao", type=int, default=0.005, help="how depth we exchange the par of the nn")
-    parser.add_argument("--lr_a", type=float, default=5e-5, help="learning rate for adam optimizer")
+    parser.add_argument("--lr_a", type=float, default=5e-4, help="learning rate for adam optimizer")
     parser.add_argument("--lr_c", type=float, default=1e-4, help="learning rate for adam optimizer")
     parser.add_argument("--gamma", type=float, default=0.99, help="discount factor")
-    parser.add_argument("--batch_size", type=int, default=512, help="number of episodes to optimize at the same time")
+    parser.add_argument("--batch_size", type=int, default=64, help="number of episodes to optimize at the same time")
     parser.add_argument("--memory_size", type=int, default=1e6, help="number of data stored in the memory")
+    parser.add_argument("--gnn_hidden_dim", type=int, default=32, help="numbers of hidden dimension in the gnn")
     parser.add_argument("--num_units_1", type=int, default=512, help="number of units in the mlp")
     parser.add_argument("--num_units_2", type=int, default=256, help="number of units in the mlp")
     parser.add_argument("--num_units_openai", type=int, default=512, help="number of units in the mlp")
@@ -44,13 +38,10 @@ def parse_args():
 
     # checkpointing
     parser.add_argument("--fre4save_model", type=int, default=10000, help="the number of the episode for saving the model")
-    #parser.add_argument("--start_save_model", type=int, default=120000, help="the number of the episode for saving the model")
     parser.add_argument("--start_save_model", type=int, default=10000,
                         help="the number of the episode for saving the model")
     parser.add_argument("--save_dir", type=str, default="models", \
             help="directory in which training state and model should be saved")
-    # parser.add_argument("--old_model_name", type=str, default="models/rpp_2402_021855_1502000/", \
-    #         help="directory in which training state and model are loaded")
     parser.add_argument("--mix_model_name", type=str, default="models/attention_2412_170718_6002000/", \
             help="directory in which mix training state and model are loaded")
     parser.add_argument("--typical_model_name", type=str, default="models/typical_2403_091626_502000/", \
