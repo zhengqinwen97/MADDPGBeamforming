@@ -17,7 +17,7 @@ def parse_args():
     parser.add_argument("--start_time", type=str, default=time_now, help="the time when start the game")
     parser.add_argument("--per_episode_max_len", type=int, default=400, help="maximum episode length")
     #parser.add_argument("--max_episode", type=int, default=18006, help="maximum episode length")
-    parser.add_argument("--max_episode", type=int, default=40, help="maximum episode length")
+    parser.add_argument("--max_episode", type=int, default=60, help="maximum episode length")
     parser.add_argument("--num-adversaries", type=int, default=1, help="number of adversaries")
     parser.add_argument("--per_obs_dim", type=int, default=15, help="dim of obs")
     parser.add_argument("--per_act_dim", type=int, default=2, help="dim of act")
